@@ -1,12 +1,3 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
-
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
 # Mercally Site
 
 Personal portfolio and software engineering site for Josué Mercadillo. The site presents
@@ -91,7 +82,7 @@ ignored by Git.
 - Shared UI components are under `mercally-site/src/app/components/`.
 - Page-specific templates and styles live together under `mercally-site/src/app/pages/`.
 - Application data is modeled under `mercally-site/src/app/models/` and exposed through services
-	under `mercally-site/src/app/services/`.
+ under `mercally-site/src/app/services/`.
 
 ## Copyright
 
