@@ -1,0 +1,11 @@
+services:
+  app:
+    image: mercally-site:latest
+    networks:
+      traefik-net:
+    restart: unless-stopped
+
+networks:
+  traefik-net:
+    name: traefik-network
+    external: true

@@ -1,0 +1,141 @@
+<div class="animate-enter max-w-6xl mx-auto px-6 py-12 md:py-16">
+
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-[3px] h-3.5 rounded-sm bg-violet-600 dark:bg-violet-400 block"></span>
+    <h2 class="text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400">{{ t().kicker }}</h2>
+  </div>
+  <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 max-w-xl mb-3">
+    {{ t().title }}
+  </h1>
+  <p class="text-base text-gray-600 dark:text-gray-400 max-w-lg mb-10">
+    {{ t().intro }}
+  </p>
+
+  <app-page-nav-layout [sections]="navSections()" [ariaLabel]="t().onThisPage">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+    <!-- FORM -->
+    <form id="form" (submit)="onSubmit($event)" class="scroll-mt-24 flex flex-col gap-5">
+      <div>
+        <label for="contact-name" class="block text-xs uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-1.5">
+          {{ t().formName }}
+        </label>
+        <input id="contact-name" type="text" required
+          [value]="formName()" (input)="formName.set($any($event.target).value)"
+          [placeholder]="t().formNamePlaceholder"
+          class="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus-visible:outline focus-visible:outline-violet-500 focus-visible:border-violet-500" />
+      </div>
+
+      <div>
+        <label for="contact-company" class="block text-xs uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-1.5">
+          {{ t().formCompany }}
+        </label>
+        <input id="contact-company" type="text"
+          [value]="formCompany()" (input)="formCompany.set($any($event.target).value)"
+          [placeholder]="t().formCompanyPlaceholder"
+          class="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus-visible:outline focus-visible:outline-violet-500 focus-visible:border-violet-500" />
+      </div>
+
+      <div>
+        <label for="contact-email" class="block text-xs uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-1.5">
+          {{ t().formEmail }}
+        </label>
+        <input id="contact-email" type="email" required
+          [value]="formEmail()" (input)="formEmail.set($any($event.target).value)"
+          [placeholder]="t().formEmailPlaceholder"
+          class="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus-visible:outline focus-visible:outline-violet-500 focus-visible:border-violet-500" />
+      </div>
+
+      <div>
+        <label for="contact-topic" class="block text-xs uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-1.5">
+          {{ t().formTopic }}
+        </label>
+        <select id="contact-topic"
+          [value]="formTopic()" (change)="formTopic.set($any($event.target).value)"
+          class="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus-visible:outline focus-visible:outline-violet-500 focus-visible:border-violet-500">
+          @for (topic of topics; track topic.id) {
+            <option [value]="topic.id">{{ lang() === 'es' ? topic.labelEs : topic.labelEn }}</option>
+          }
+        </select>
+      </div>
+
+      <div>
+        <label for="contact-message" class="block text-xs uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-1.5">
+          {{ t().formMessage }}
+        </label>
+        <textarea id="contact-message" rows="5" required
+          [value]="formMessage()" (input)="formMessage.set($any($event.target).value)"
+          [placeholder]="t().formMessagePlaceholder"
+          class="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus-visible:outline focus-visible:outline-violet-500 focus-visible:border-violet-500"></textarea>
+      </div>
+
+      <div>
+        <button type="submit"
+          class="inline-flex items-center gap-2 text-sm border border-violet-600 dark:border-violet-500 text-violet-700 dark:text-violet-400 rounded-md px-5 py-2.5 hover:bg-violet-50 dark:hover:bg-violet-950/40 transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>
+          {{ t().formSubmit }}
+        </button>
+        <p class="text-xs text-gray-400 dark:text-gray-600 mt-2.5">{{ t().formNote }}</p>
+      </div>
+    </form>
+
+    <!-- INFO / REPOS / SOCIAL -->
+    <div id="info" class="scroll-mt-24 flex flex-col gap-6">
+
+      <!-- Info -->
+      <div class="rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950 p-5">
+        <p class="text-[11px] uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-3">{{ t().infoSection }}</p>
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2.5 text-sm text-gray-700 dark:text-gray-300">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-violet-600 dark:text-violet-400 shrink-0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"></path><circle cx="12" cy="10" r="2.6"></circle></svg>
+            {{ t().locationVal }}
+          </div>
+          <div class="flex items-center gap-2.5 text-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-violet-600 dark:text-violet-400 shrink-0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>
+            <a [href]="'mailto:' + email" class="text-violet-700 dark:text-violet-400 hover:underline truncate">{{ email }}</a>
+            <button type="button" (click)="copyEmail()"
+              class="ml-auto shrink-0 text-xs border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 rounded-md px-2.5 py-1 hover:border-violet-400 dark:hover:border-violet-600 transition-colors">
+              {{ copied() ? t().copied : t().copy }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repos -->
+      <div class="flex flex-col gap-3">
+        <p class="text-[11px] uppercase tracking-wider text-gray-500 dark:text-gray-500">{{ t().reposSection }}</p>
+        <a href="https://github.com/mercally" target="_blank" rel="noopener"
+          class="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-4 hover:border-violet-400 dark:hover:border-violet-600 transition-colors">
+          <span class="flex-1 min-w-0">
+            <span class="block text-sm font-semibold text-gray-900 dark:text-gray-100">github.com</span>
+            <span class="block text-xs text-gray-500 dark:text-gray-500">{{ t().ghDesc }}</span>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-violet-600 dark:text-violet-400 shrink-0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7h8v8"></path></svg>
+        </a>
+        <a href="https://dev.azure.com/mercally" target="_blank" rel="noopener"
+          class="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-4 hover:border-violet-400 dark:hover:border-violet-600 transition-colors">
+          <span class="flex-1 min-w-0">
+            <span class="block text-sm font-semibold text-gray-900 dark:text-gray-100">dev.azure.com</span>
+            <span class="block text-xs text-gray-500 dark:text-gray-500">{{ t().azDesc }}</span>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-violet-600 dark:text-violet-400 shrink-0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7h8v8"></path></svg>
+        </a>
+      </div>
+
+      <!-- Social -->
+      <div class="flex flex-col gap-3">
+        <p class="text-[11px] uppercase tracking-wider text-gray-500 dark:text-gray-500">{{ t().socialSection }}</p>
+        <a href="https://linkedin.com/in/josuemercally" target="_blank" rel="noopener"
+          class="flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-800 p-4 hover:border-violet-400 dark:hover:border-violet-600 transition-colors">
+          <span class="flex-1 min-w-0">
+            <span class="block text-sm font-semibold text-gray-900 dark:text-gray-100">LinkedIn</span>
+            <span class="block text-xs text-gray-500 dark:text-gray-500">linkedin.com/in/josuemercally</span>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-violet-600 dark:text-violet-400 shrink-0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7h8v8"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+  </app-page-nav-layout>
+</div>

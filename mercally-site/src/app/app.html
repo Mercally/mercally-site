@@ -1,0 +1,103 @@
+<header class="fixed top-0 left-0 w-full z-50 bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-6xl mx-auto px-6 py-3.5 flex items-center justify-between gap-6">
+
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center gap-2 text-gray-900 dark:text-gray-100 hover:opacity-70 transition-opacity">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-violet-600 dark:text-violet-400" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 19V7l6 5 6-5v12"></path>
+        <path d="M18 8.5h3"></path>
+        <path d="M18 13h3"></path>
+      </svg>
+      <span class="font-semibold text-sm tracking-[0.14em]">MERCALLY</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
+      <a routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900"
+        class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 px-3 py-2 rounded-md hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
+        {{ nav().home }}
+      </a>
+      <a routerLink="/case-studies" routerLinkActive="text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900"
+        class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 px-3 py-2 rounded-md hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
+        {{ nav().casestudies }}
+      </a>
+      <a routerLink="/services" routerLinkActive="text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900"
+        class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 px-3 py-2 rounded-md hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
+        {{ nav().services }}
+      </a>
+      <a routerLink="/about" routerLinkActive="text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900"
+        class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 px-3 py-2 rounded-md hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
+        {{ nav().about }}
+      </a>
+      <a routerLink="/contact"
+        class="ml-2 text-xs uppercase tracking-wider border border-violet-600 dark:border-violet-500 text-violet-700 dark:text-violet-400 px-4 py-2 rounded-md hover:bg-violet-50 dark:hover:bg-violet-950/40 transition-colors">
+        {{ nav().talk }}
+      </a>
+
+      <div class="flex items-center gap-3 border-l border-gray-200 dark:border-gray-800 pl-4 ml-1">
+        <button type="button" (click)="langSvc.toggle()"
+          class="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+          {{ lang() === 'es' ? 'EN' : 'ES' }}
+        </button>
+        <button type="button" (click)="themeSvc.toggle()"
+          class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+          <span class="sr-only">Toggle theme</span>
+          @if (themeSvc.theme() === 'light') {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg>
+          } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>
+          }
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile toggle -->
+    <button type="button"
+      class="md:hidden text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+      (click)="toggleMenu()">
+      <span class="sr-only">Menu</span>
+      @if (menuOpen()) {
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      } @else {
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      }
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (menuOpen()) {
+  <div class="md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
+    <nav class="flex flex-col text-sm py-2" aria-label="Mobile navigation">
+      <a routerLink="/" (click)="closeMenu()" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-violet-700 dark:text-violet-400"
+        class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().home }}</a>
+      <a routerLink="/case-studies" (click)="closeMenu()" routerLinkActive="text-violet-700 dark:text-violet-400"
+        class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().casestudies }}</a>
+      <a routerLink="/services" (click)="closeMenu()" routerLinkActive="text-violet-700 dark:text-violet-400"
+        class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().services }}</a>
+      <a routerLink="/about" (click)="closeMenu()" routerLinkActive="text-violet-700 dark:text-violet-400"
+        class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().about }}</a>
+      <a routerLink="/contact" (click)="closeMenu()" routerLinkActive="text-violet-700 dark:text-violet-400"
+        class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().contact }}</a>
+      <div class="flex gap-4 px-6 py-2.5 border-t border-gray-100 dark:border-gray-800 mt-1">
+        <button type="button" (click)="langSvc.toggle()" class="text-xs text-gray-400 dark:text-gray-500">{{ lang() === 'es' ? 'EN' : 'ES' }}</button>
+        <button type="button" (click)="themeSvc.toggle()" class="text-xs text-gray-400 dark:text-gray-500">{{ themeSvc.nextTheme() }}</button>
+      </div>
+    </nav>
+  </div>
+  }
+</header>
+
+<main class="pt-14 min-h-screen bg-white dark:bg-black transition-colors duration-200">
+  <router-outlet />
+</main>
+
+<footer class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
+  <div class="max-w-6xl mx-auto px-6 py-7 flex flex-wrap gap-4 justify-between items-center text-xs text-gray-500 dark:text-gray-500">
+    <span>Josué Mercadillo · {{ nav().footerRole }}</span>
+    <div class="flex gap-5">
+      <a href="https://github.com/mercally" target="_blank" rel="noopener" class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">GitHub</a>
+      <a href="https://linkedin.com/in/josuemercally" target="_blank" rel="noopener" class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">LinkedIn</a>
+      <a href="mailto:josuemercally@outlook.com" class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">{{ lang() === 'es' ? 'Correo' : 'Email' }}</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="_ds/nocturne-9cc2b57e-2897-4add-b451-8a1bd05fe7ce/styles.css">
+<script src="_ds/nocturne-9cc2b57e-2897-4add-b451-8a1bd05fe7ce/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+  a { color: var(--color-accent-300); text-decoration: none; }
+  a:hover { color: var(--color-accent-200); text-decoration: underline; }
+  @keyframes mcEnter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes mcFlow { to { stroke-dashoffset: -200; } }
+  @keyframes mcPulse { 0%,100% { opacity: .3 } 50% { opacity: 1 } }
+  @keyframes mcFade { from { opacity: 0 } to { opacity: 1 } }
+</style>
+</helmet>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh;display:flex;flex-direction:column">
+
+  <header style="position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--color-bg) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-neutral-900)">
+    <div style="max-width:1080px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--color-text)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 19V7l6 5 6-5v12"></path><path d="M18 8.5h3"></path><path d="M18 13h3"></path>
+        </svg>
+        <span style="font-family:var(--font-heading);font-weight:600;font-size:15px;letter-spacing:0.14em">MERCALLY</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+        <a href="#" onClick="{{ goHome }}" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400);padding:7px 11px;border-radius:var(--radius-sm);text-decoration:none" style-hover="color:var(--color-text);background:var(--color-neutral-900)">Inicio</a>
+        <a href="#" onClick="{{ goCasos }}" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400);padding:7px 11px;border-radius:var(--radius-sm);text-decoration:none" style-hover="color:var(--color-text);background:var(--color-neutral-900)">Casos</a>
+        <a href="#" onClick="{{ goServicios }}" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400);padding:7px 11px;border-radius:var(--radius-sm);text-decoration:none" style-hover="color:var(--color-text);background:var(--color-neutral-900)">Servicios</a>
+        <a href="#" onClick="{{ goSobre }}" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400);padding:7px 11px;border-radius:var(--radius-sm);text-decoration:none" style-hover="color:var(--color-text);background:var(--color-neutral-900)">Sobre mí</a>
+        <a href="#" onClick="{{ goContacto }}" class="btn btn-primary" style="margin-left:8px;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>
+          Hablemos
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="flex:1;animation:mcEnter 420ms ease both">
+
+  <!-- INICIO -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <section style="position:relative;overflow:hidden;border-bottom:1px solid var(--color-neutral-900)">
+      <div style="position:absolute;inset:0;background:radial-gradient(1100px 520px at 12% -10%, color-mix(in srgb, var(--color-accent) 20%, transparent), transparent 70%);pointer-events:none"></div>
+      <div style="position:relative;max-width:1180px;margin:0 auto;padding:80px 28px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:44px;align-items:center">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+          <span style="width:3px;height:17px;border-radius:2px;background:var(--color-accent);display:block"></span>
+          <span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300)">Senior Software Engineer &amp; Technical Lead</span>
+        </div>
+        <h1 style="font-size:clamp(36px,4.8vw,62px);line-height:1.0;letter-spacing:-0.035em;max-width:19ch;margin:0 0 26px">Los sistemas no fallan por el código. Fallan por la decisión.</h1>
+        <p style="font-size:17px;line-height:1.6;color:var(--color-neutral-300);max-width:50ch;margin:0 0 32px;text-wrap:pretty">Más de nueve años diseñando, construyendo y operando software crítico de negocio en entornos internacionales y multicloud. Especializado en <strong style="color: var(--color-text); font-weight: 500;">.NET</strong>, plataformas SaaS multitenant y seguridad de aplicaciones.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px">
+          <a href="mailto:josuemercally@outlook.com?subject=Consultor%C3%ADa%20de%20arquitectura" class="btn btn-primary" style="font-size:14px;padding:11px 20px;text-decoration:none">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>
+            Agendar una conversación
+          </a>
+          <a href="#" onClick="{{ goCasos }}" class="btn btn-secondary" style="font-size:14px;padding:11px 20px;text-decoration:none">
+            Ver casos de estudio
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--color-neutral-500)">
+          <span style="display:inline-flex;align-items:center;gap:7px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"></path><circle cx="12" cy="10" r="2.6"></circle></svg>
+            San Salvador, El Salvador
+          </span>
+          <span style="display:inline-flex;align-items:center;gap:7px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.6 2.6 15.4 0 18"></path><path d="M12 3c-2.6 2.6-2.6 15.4 0 18"></path></svg>
+            Remoto con equipos de EE.UU. y LATAM
+          </span>
+          <span style="display:inline-flex;align-items:center;gap:7px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h7v12H4z"></path><path d="M13 6h7v12h-7z"></path><path d="M6 9.5h3"></path><path d="M15 9.5h3"></path></svg>
+            Español nativo, inglés B2
+          </span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="position:relative">
+        <svg viewBox="0 0 420 300" style="width:100%;height:auto;display:block" role="img" aria-label="Diagrama de arquitectura">
+          <g fill="none" stroke="var(--color-accent-800)" stroke-width="1.2">
+            <sc-for list="{{ edges }}" as="edge" hint-placeholder-count="6">
+              <path d="{{ edge.d }}"></path>
+            </sc-for>
+          </g>
+          <g fill="none" stroke="var(--color-accent-300)" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="11 190">
+            <sc-for list="{{ flows }}" as="flow" hint-placeholder-count="3">
+              <path d="{{ flow.d }}" style="{{ flow.style }}"></path>
+            </sc-for>
+          </g>
+          <sc-for list="{{ nodes }}" as="node" hint-placeholder-count="7">
+            <g onMouseEnter="{{ node.enter }}" onMouseLeave="{{ node.leave }}" onClick="{{ node.click }}" style="cursor:pointer">
+              <rect x="{{ node.x }}" y="{{ node.y }}" width="{{ node.w }}" height="{{ node.h }}" rx="9" fill="var(--color-bg)" stroke="{{ node.stroke }}" stroke-width="{{ node.sw }}"></rect>
+            </g>
+          </sc-for>
+        </svg>
+        <div style="position:absolute;inset:0;pointer-events:none">
+          <sc-for list="{{ nodes }}" as="node" hint-placeholder-count="7">
+            <div onMouseEnter="{{ node.enter }}" onMouseLeave="{{ node.leave }}" onClick="{{ node.click }}" style="{{ node.labelStyle }}">{{ node.label }}</div>
+          </sc-for>
+        </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="display:flex;gap:7px">
+            <sc-for list="{{ archDots }}" as="dot" hint-placeholder-count="3">
+              <button type="button" onClick="{{ dot.pick }}" aria-label="{{ dot.name }}" style="{{ dot.style }}"></button>
+            </sc-for>
+          </div>
+          <span style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent-300)">{{ archName }}</span>
+        </div>
+
+        <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:18px;min-height:104px">
+          <p style="font-size:12px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-500);margin:0 0 8px">{{ detailLabel }}</p>
+          <p style="font-size:14.5px;line-height:1.6;color:var(--color-neutral-200);margin:0">{{ detailText }}</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+    <section style="background:var(--color-section);background-image:radial-gradient(700px 260px at 80% 120%, var(--color-section-glow), transparent 70%);border-bottom:1px solid var(--color-neutral-900)">
+      <div style="max-width:1080px;margin:0 auto;padding:44px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:28px">
+        <div>
+          <div style="font-family:var(--font-heading);font-size:40px;line-height:1;letter-spacing:-0.03em;color:var(--color-neutral-100)">9+</div>
+          <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-300);margin-top:8px">Años en tecnología</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-heading);font-size:40px;line-height:1;letter-spacing:-0.03em;color:var(--color-neutral-100)">500+</div>
+          <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-300);margin-top:8px">Buzones sincronizados</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-heading);font-size:40px;line-height:1;letter-spacing:-0.03em;color:var(--color-neutral-100)">3</div>
+          <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-300);margin-top:8px">Nubes en producción</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-heading);font-size:40px;line-height:1;letter-spacing:-0.03em;color:var(--color-neutral-100)">20+</div>
+          <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-300);margin-top:8px">Suscripciones activas</div>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <section style="max-width:1080px;margin:0 auto;padding:80px 28px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+        <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">En qué puedo ayudar</h2>
+      </div>
+      <p style="font-size:16px;color:var(--color-neutral-300);max-width:52ch;margin:0 0 32px">Tres frentes, un mismo criterio: evaluar las compensaciones reales antes de comprometer código.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+        <a href="#" onClick="{{ goServicios }}" class="card" style="text-decoration:none;color:inherit;display:block" style-hover="box-shadow:0 0 0 1px var(--color-accent-600)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"></path><path d="M3 12l9 5 9-5"></path><path d="M3 16.5l9 5 9-5"></path></svg>
+          <div class="card-kicker" style="margin-top: 0px; margin-bottom: 0px">01 · Arquitectura</div>
+          <div class="card-title">Análisis de Arquitectura</div>
+          <div class="card-body">Monolito modular, microservicios, hexagonal y clean architecture. Arquitectura cloud en AWS y Azure, SaaS multitenant y pipelines de ingesta de datos.</div>
+        </a>
+        <a href="#" onClick="{{ goServicios }}" class="card" style="text-decoration:none;color:inherit;display:block" style-hover="box-shadow:0 0 0 1px var(--color-accent-600)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"></path><circle cx="17" cy="7" r="2.4"></circle><path d="M16 13c2.7.3 4.5 2.3 4.5 5"></path></svg>
+          <div class="card-kicker">02 · Liderazgo</div>
+          <div class="card-title">Liderazgo Técnico</div>
+          <div class="card-body">Guía técnica de extremo a extremo en stacks de producción reales: .NET, SQL Server y PostgreSQL, Angular y React, .NET MAUI.</div>
+        </a>
+        <a href="#" onClick="{{ goServicios }}" class="card" style="text-decoration:none;color:inherit;display:block" style-hover="box-shadow:0 0 0 1px var(--color-accent-600)">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px" aria-hidden="true"><path d="M12 3l8 3v6c0 4.4-3.3 8.1-8 9-4.7-.9-8-4.6-8-9V6l8-3z"></path><path d="M8.8 12l2.2 2.2 4.2-4.4"></path></svg>
+          <div class="card-kicker">03 · Seguridad</div>
+          <div class="card-title">Análisis de Ciberseguridad</div>
+          <div class="card-body">AppSec con metodología estándar: SAST con SonarQube, DAST con OWASP ZAP y CASA Assessment de Google.</div>
+        </a>
+      </div>
+    </section>
+
+    <section style="max-width:1080px;margin:0 auto;padding:80px 28px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+        <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">Cómo decido</h2>
+      </div>
+      <p style="font-size:16px;color:var(--color-neutral-300);max-width:54ch;margin:0 0 8px">Toda arquitectura es una decisión con consecuencias. Estas son las que aparecen en casi todo proyecto, y de qué lado me paro.</p>
+      <p style="font-size:13px;color:var(--color-neutral-500);margin:0 0 26px">Abre la que te interese.</p>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <sc-for list="{{ tradeoffs }}" as="to" hint-placeholder-count="6">
+          <div style="border-top:1px solid var(--color-neutral-900)">
+            <button type="button" onClick="{{ to.toggle }}" style="width:100%;text-align:left;background:transparent;border:0;cursor:pointer;padding:20px 0;display:grid;grid-template-columns:minmax(0,1fr) 22px;gap:16px;align-items:center;font-family:var(--font-body)">
+              <span>
+                <span style="font-size:12px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-accent-300);display:block;margin-bottom:8px">{{ to.label }}</span>
+                <span style="font-family:var(--font-heading);font-size:19px;letter-spacing:-0.02em;color:var(--color-neutral-100);display:block;line-height:1.3">{{ to.headline }}</span>
+              </span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="{{ to.chevron }}" aria-hidden="true"><path d="M6 9.5l6 6 6-6"></path></svg>
+            </button>
+            <sc-if value="{{ to.open }}">
+              <div style="padding:0 0 26px;animation:mcFade 240ms ease both">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:16px">
+                  <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:18px">
+                    <p style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-500);margin:0 0 8px">Opción A</p>
+                    <p style="font-size:15px;color:var(--color-neutral-100);margin:0 0 8px;font-family:var(--font-heading)">{{ to.a }}</p>
+                    <p style="font-size:14px;line-height:1.6;color:var(--color-neutral-300);margin:0">{{ to.aBody }}</p>
+                  </div>
+                  <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:18px">
+                    <p style="font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-500);margin:0 0 8px">Opción B</p>
+                    <p style="font-size:15px;color:var(--color-neutral-100);margin:0 0 8px;font-family:var(--font-heading)">{{ to.b }}</p>
+                    <p style="font-size:14px;line-height:1.6;color:var(--color-neutral-300);margin:0">{{ to.bBody }}</p>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;align-items:start">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px" aria-hidden="true"><path d="M12 4v3"></path><path d="M6 8.5l2 1.6"></path><path d="M18 8.5l-2 1.6"></path><path d="M9.5 20h5"></path><path d="M10 16.8a5 5 0 1 1 4 0z"></path></svg>
+                  <div>
+                    <p style="font-size:12px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-500);margin:0 0 6px">Mi lectura</p>
+                    <p style="font-size:17px;line-height:1.55;color:var(--color-neutral-100);margin:0">{{ to.verdict }}</p>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid var(--color-neutral-900)"></div>
+      </div>
+    </section>
+
+    <section style="max-width:1080px;margin:0 auto;padding:80px 28px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+        <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">Dónde he trabajado</h2>
+      </div>
+      <p style="font-size:16px;color:var(--color-neutral-300);max-width:52ch;margin:0 0 32px">Sin nombres de clientes: el contexto técnico dice más que el logo.</p>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid var(--color-neutral-900)">
+          <div style="font-size:13px;color:var(--color-neutral-500);letter-spacing:0.04em">2023 a 2026</div>
+          <div>
+            <h3 style="font-size:19px;margin:0 0 6px">Plataforma fintech de EE.UU., 500+ firmas</h3>
+            <p style="font-size:15px;color:var(--color-neutral-300);margin:0;max-width:62ch">Modernización y mejora continua de una plataforma que corre miles de flujos automatizados de datos financieros por día. Migración de frameworks, hardening de seguridad, gestión de secretos y observabilidad.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid var(--color-neutral-900)">
+          <div style="font-size:13px;color:var(--color-neutral-500);letter-spacing:0.04em">2023 a 2025</div>
+          <div>
+            <h3 style="font-size:19px;margin:0 0 6px">Plataforma gubernamental multitenant, EE.UU.</h3>
+            <p style="font-size:15px;color:var(--color-neutral-300);margin:0;max-width:62ch">Diseño y evolución de las capacidades de pago de una plataforma .NET y VB.NET con una base de datos SQL Server aislada por condado, más integraciones de facturación y cobro entre múltiples sistemas.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid var(--color-neutral-900)">
+          <div style="font-size:13px;color:var(--color-neutral-500);letter-spacing:0.04em">2023 a hoy</div>
+          <div>
+            <h3 style="font-size:19px;margin:0 0 6px">SaaS propio de documentos tributarios electrónicos</h3>
+            <p style="font-size:15px;color:var(--color-neutral-300);margin:0;max-width:62ch">Cofundador y arquitecto. Multitenant con aislamiento por workspace, integración con Microsoft Graph y Gmail, arquitectura multicloud y operación en producción. Servicio vivo por suscripción.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid var(--color-neutral-900);border-bottom:1px solid var(--color-neutral-900)">
+          <div style="font-size:13px;color:var(--color-neutral-500);letter-spacing:0.04em">2020 a 2023</div>
+          <div>
+            <h3 style="font-size:19px;margin:0 0 6px">Plataforma de telecomunicaciones a gran escala</h3>
+            <p style="font-size:15px;color:var(--color-neutral-300);margin:0;max-width:62ch">Desarrollador líder del producto. Audit trail de extremo a extremo sobre entidades críticas donde antes no existía registro, más servicios REST y WCF integrando sistemas empresariales internos y externos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1080px;margin:0 auto;padding:80px 28px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+        <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+        <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">Stack</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px">
+        <div>
+          <h3 style="font-size:15px;margin:0 0 10px;display:flex;align-items:center;gap:8px">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"></rect><rect x="3" y="14" width="18" height="6" rx="1.5"></rect></svg>
+            Arquitectura y diseño
+          </h3>
+          <p style="font-size:14px;color:var(--color-neutral-400);margin:0;line-height:1.7">Clean Architecture · DDD · CQRS · Vertical Slices · Monolito modular · Microservicios · Sistemas distribuidos · Procesamiento asíncrono y orientado a eventos</p>
+        </div>
+        <div>
+          <h3 style="font-size:15px;margin:0 0 10px;display:flex;align-items:center;gap:8px">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"></path><path d="M15 8l4 4-4 4"></path></svg>
+            Plataforma .NET
+          </h3>
+          <p style="font-size:14px;color:var(--color-neutral-400);margin:0;line-height:1.7">C# · VB.NET · ASP.NET MVC · Web API · EF Core · Dapper · Hangfire · MassTransit · .NET Aspire · MAUI · TypeScript · Angular · React</p>
+        </div>
+        <div>
+          <h3 style="font-size:15px;margin:0 0 10px;display:flex;align-items:center;gap:8px">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a3.5 3.5 0 0 0 .3-7 5.5 5.5 0 0 0-10.6-1A4 4 0 0 0 7 18z"></path></svg>
+            Cloud y operación
+          </h3>
+          <p style="font-size:14px;color:var(--color-neutral-400);margin:0;line-height:1.7">Azure · AWS · GCP · VPS autogestionado · Docker · Swarm · Kubernetes · Azure DevOps · Jenkins · NGINX · Traefik · Grafana · OpenTelemetry · Seq</p>
+        </div>
+        <div>
+          <h3 style="font-size:15px;margin:0 0 10px;display:flex;align-items:center;gap:8px">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"></path></svg>
+            Datos y seguridad
+          </h3>
+          <p style="font-size:14px;color:var(--color-neutral-400);margin:0;line-height:1.7">SQL Server · PostgreSQL · Oracle · MongoDB · Row Level Security · OWASP Top 10 · SonarQube (SAST) · OWASP ZAP (DAST) · OAuth 2.0 y OIDC · Key Vault · Google CASA Tier 2</p>
+        </div>
+      </div>
+    </section>
+
+    <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ true }}">
+    <section style="max-width:1080px;margin:0 auto;padding:80px 28px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+        <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">Lo que dicen</h2>
+      </div>
+      <p style="font-size:13px;color:var(--color-neutral-500);max-width:52ch;margin:0 0 26px">Espacio reservado. Reemplaza estos tres bloques cuando tengas los testimonios.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px">
+        <figure style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px;margin:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-500)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><path d="M9.5 6C6.5 7.5 5 10 5 13.5A3.5 3.5 0 0 0 8.5 17c1.9 0 3.3-1.4 3.3-3.2 0-1.8-1.3-3.1-3-3.1-.2 0-.4 0-.6.1.3-1.4 1.3-2.6 2.8-3.4z"></path><path d="M19 6c-3 1.5-4.5 4-4.5 7.5A3.5 3.5 0 0 0 18 17c1.9 0 3.3-1.4 3.3-3.2 0-1.8-1.3-3.1-3-3.1-.2 0-.4 0-.6.1.3-1.4 1.3-2.6 2.8-3.4z"></path></svg>
+          <blockquote style="font-size:16px;line-height:1.55;color:var(--color-neutral-200);margin:0 0 16px">“Cita pendiente: el testimonio de un cliente o líder técnico con quien trabajaste.”</blockquote>
+          <figcaption style="font-size:13px;color:var(--color-neutral-500)">Nombre · Cargo, Empresa</figcaption>
+        </figure>
+        <figure style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px;margin:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-500)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><path d="M9.5 6C6.5 7.5 5 10 5 13.5A3.5 3.5 0 0 0 8.5 17c1.9 0 3.3-1.4 3.3-3.2 0-1.8-1.3-3.1-3-3.1-.2 0-.4 0-.6.1.3-1.4 1.3-2.6 2.8-3.4z"></path><path d="M19 6c-3 1.5-4.5 4-4.5 7.5A3.5 3.5 0 0 0 18 17c1.9 0 3.3-1.4 3.3-3.2 0-1.8-1.3-3.1-3-3.1-.2 0-.4 0-.6.1.3-1.4 1.3-2.6 2.8-3.4z"></path></svg>
+          <blockquote style="font-size:16px;line-height:1.55;color:var(--color-neutral-200);margin:0 0 16px">“Cita pendiente. Idealmente sobre un resultado concreto, no sobre lo agradable que fue trabajar contigo.”</blockquote>
+          <figcaption style="font-size:13px;color:var(--color-neutral-500)">Nombre · Cargo, Empresa</figcaption>
+        </figure>
+        <figure style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px;margin:0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-500)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><path d="M9.5 6C6.5 7.5 5 10 5 13.5A3.5 3.5 0 0 0 8.5 17c1.9 0 3.3-1.4 3.3-3.2 0-1.8-1.3-3.1-3-3.1-.2 0-.4 0-.6.1.3-1.4 1.3-2.6 2.8-3.4z"></path><path d="M19 6c-3 1.5-4.5 4-4.5 7.5A3.5 3.5 0 0 0 18 17c1.9 0 3.3-1.4 3.3-3.2 0-1.8-1.3-3.1-3-3.1-.2 0-.4 0-.6.1.3-1.4 1.3-2.6 2.8-3.4z"></path></svg>
+          <blockquote style="font-size:16px;line-height:1.55;color:var(--color-neutral-200);margin:0 0 16px">“Cita pendiente. Un tercero basta para empezar, tres se ven mejor.”</blockquote>
+          <figcaption style="font-size:13px;color:var(--color-neutral-500)">Nombre · Cargo, Empresa</figcaption>
+        </figure>
+      </div>
+    </section>
+    </sc-if>
+
+    <section style="max-width:1080px;margin:0 auto;padding:88px 28px 104px">
+      <div style="border-top:1px solid var(--color-neutral-900);padding-top:48px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between">
+        <div>
+          <h2 style="font-size:clamp(26px,3.4vw,38px);letter-spacing:-0.02em;margin:0 0 12px;max-width:26ch">¿Tienes una decisión de arquitectura sobre la mesa?</h2>
+          <p style="font-size:16px;color:var(--color-neutral-300);margin:0;max-width:48ch">Cuéntame el contexto y te digo qué haría yo, y qué no.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="mailto:josuemercally@outlook.com?subject=Consultor%C3%ADa%20de%20arquitectura" class="btn btn-primary" style="font-size:14px;padding:11px 20px;text-decoration:none">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>
+            Escríbeme
+          </a>
+          <a href="#" onClick="{{ goContacto }}" class="btn btn-ghost" style="font-size:14px;padding:11px 20px;text-decoration:none">Otras formas de contacto</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- CASOS -->
+  <sc-if value="{{ isCasos }}">
+  <div style="max-width:1080px;margin:0 auto;padding:72px 28px 104px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+      <span style="width:3px;height:17px;border-radius:2px;background:var(--color-accent);display:block"></span>
+      <span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300)">Casos y patrones</span>
+    </div>
+    <h1 style="font-size:clamp(32px,4.6vw,52px);letter-spacing:-0.03em;margin:0 0 18px;max-width:24ch">Decisiones reales, con sus compensaciones.</h1>
+    <p style="font-size:17px;color:var(--color-neutral-300);max-width:58ch;margin:0 0 56px">Análisis técnicos anonimizados: qué decisiones funcionaron, cuáles no, y por qué. Sin humo ni nombres de clientes, solo el razonamiento detrás del código.</p>
+
+    <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 18px">Casos de estudio</h2>
+    <a href="#" onClick="{{ goCaso }}" style="display:block;text-decoration:none;color:inherit;background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:28px" style-hover="box-shadow:0 0 0 1px var(--color-accent-600)">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <span class="tag tag-accent">Multitenant SaaS</span>
+        <span class="tag tag-outline">Clean Architecture</span>
+        <span class="tag tag-neutral">Integraciones</span>
+      </div>
+      <h3 style="font-size:26px;letter-spacing:-0.02em;margin:0 0 10px">Lector de Correo Multiproveedor</h3>
+      <p style="font-size:16px;color:var(--color-neutral-300);margin:0 0 16px;max-width:62ch">Captura e ingesta automatizada de comprobantes fiscales enviados por correo a través de Gmail, Microsoft 365 y Yahoo Mail.</p>
+      <span style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-300);display:inline-flex;align-items:center;gap:7px">
+        Leer el caso
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg>
+      </span>
+    </a>
+    <p style="font-size:13px;color:var(--color-neutral-500);margin:16px 0 0">Más casos en camino.</p>
+
+    <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:64px 0 18px">Patrones de arquitectura</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+      <sc-for list="{{ patterns }}" as="pat" hint-placeholder-count="5">
+        <a href="#" onClick="{{ pat.open }}" class="card" style="text-decoration:none;color:inherit;display:block" style-hover="box-shadow:0 0 0 1px var(--color-accent-600)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.4"></rect><rect x="14" y="3" width="7" height="7" rx="1.4"></rect><rect x="3" y="14" width="7" height="7" rx="1.4"></rect><path d="M17.5 14v7"></path><path d="M14 17.5h7"></path></svg>
+          <div class="card-title">{{ pat.name }}</div>
+          <div class="card-body">{{ pat.summary }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- CASO, DETALLE -->
+  <sc-if value="{{ isCaso }}">
+  <div style="max-width:820px;margin:0 auto;padding:56px 28px 104px">
+    <a href="#" onClick="{{ goCasos }}" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400);text-decoration:none;display:inline-flex;align-items:center;gap:7px">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+      Casos y patrones
+    </a>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:32px 0 18px">
+      <span class="tag tag-accent">Multitenant SaaS</span>
+      <span class="tag tag-outline">Clean Architecture</span>
+    </div>
+    <h1 style="font-size:clamp(30px,4.4vw,48px);letter-spacing:-0.03em;margin:0 0 16px">Lector de Correo Multiproveedor</h1>
+    <p style="font-size:18px;color:var(--color-neutral-300);margin:0 0 12px">Captura e ingesta automatizada de comprobantes fiscales enviados por correo.</p>
+    <p style="font-size:13px;color:var(--color-neutral-500);margin:0 0 52px;display:inline-flex;align-items:center;gap:7px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3 2"></path></svg>
+      Publicado 09 / 2026
+    </p>
+
+    <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 12px">Contexto</h2>
+    <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-200);margin:0 0 44px">Proveedores envían documentos tributarios electrónicos como adjuntos a través de Gmail, Microsoft 365 y Yahoo Mail. El sistema necesita monitorear múltiples cuentas y proveedores de correo de forma continua.</p>
+
+    <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 12px">Problema</h2>
+    <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-200);margin:0 0 44px">Cada proveedor de correo expone una API distinta (OAuth, protocolos de sincronización, límites de tasa), y no todos los correos entrantes contienen comprobantes válidos: hay que filtrar ruido antes de procesar y almacenar archivos.</p>
+
+    <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 16px">Decisiones de arquitectura</h2>
+    <ul style="margin:0 0 44px;padding:0;list-style:none;display:flex;flex-direction:column;gap:0">
+      <sc-for list="{{ decisions }}" as="dec" hint-placeholder-count="11">
+        <li style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--color-neutral-900)">
+          <span style="font-size:13px;color:var(--color-accent-400)">{{ dec.n }}</span>
+          <span style="font-size:15px;line-height:1.65;color:var(--color-neutral-200)">{{ dec.text }}</span>
+        </li>
+      </sc-for>
+    </ul>
+
+    <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 16px">Compensaciones</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:44px">
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:20px">
+        <h3 style="font-size:16px;margin:0 0 8px">Adaptadores por proveedor frente a cliente IMAP genérico</h3>
+        <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-300);margin:0">Más código de mantenimiento a cambio de aprovechar OAuth y webhooks nativos de cada proveedor, más confiables que polling IMAP.</p>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:20px">
+        <h3 style="font-size:16px;margin:0 0 8px">Base de datos compartida con RLS frente a base de datos por tenant</h3>
+        <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-300);margin:0">Una sola base reduce costo operativo y simplifica migraciones; RLS aplica el aislamiento a nivel de motor de base de datos en vez de confiar solo en la capa de aplicación.</p>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:20px">
+        <h3 style="font-size:16px;margin:0 0 8px">PostgreSQL frente a MongoDB para el contenido de los documentos</h3>
+        <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-300);margin:0">El sistema captura y almacena los adjuntos como archivos, sin leer ni estructurar el contenido del comprobante fiscal. Si esa lectura estructurada fuera un requisito, MongoDB encajaría mejor: el comprobante ya es JSON y se guardaría tal cual, sin mapearlo a un esquema relacional.</p>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:20px">
+        <h3 style="font-size:16px;margin:0 0 8px">Un solo nodo VPS en producción frente a clúster de alta disponibilidad</h3>
+        <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-300);margin:0">Producción corre en un único nodo VPS, con un nodo de staging separado. Es una restricción conocida de escalamiento, aceptada por simplicidad operativa mientras la carga no lo justifique.</p>
+      </div>
+    </div>
+
+    <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 12px">Resultado</h2>
+    <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-200);margin:0 0 48px;display:flex;align-items:flex-start;gap:10px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8.2 12.2l2.5 2.5 5.1-5.4"></path></svg>
+      Ingesta continua desde tres proveedores de correo sin intervención manual.
+    </p>
+
+    <div style="border-top:1px solid var(--color-neutral-900);padding-top:32px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:13px;color:var(--color-neutral-500);margin-right:6px">Patrones relacionados:</span>
+      <a href="#" onClick="{{ goPatMultiTenant }}" class="btn btn-secondary" style="font-size:13px;text-decoration:none">Multitenant SaaS</a>
+      <a href="#" onClick="{{ goPatClean }}" class="btn btn-secondary" style="font-size:13px;text-decoration:none">Clean Architecture</a>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- PATRÓN, DETALLE -->
+  <sc-if value="{{ isPatron }}">
+  <div style="max-width:820px;margin:0 auto;padding:56px 28px 104px">
+    <a href="#" onClick="{{ goCasos }}" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-400);text-decoration:none;display:inline-flex;align-items:center;gap:7px">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+      Casos y patrones
+    </a>
+    <p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:32px 0 14px">Patrón de arquitectura</p>
+    <h1 style="font-size:clamp(30px,4.4vw,48px);letter-spacing:-0.03em;margin:0 0 16px">{{ patternName }}</h1>
+    <p style="font-size:18px;line-height:1.6;color:var(--color-neutral-300);margin:0 0 52px;max-width:56ch">{{ patternSummary }}</p>
+    <sc-for list="{{ patternSections }}" as="sec" hint-placeholder-count="3">
+      <section style="margin-bottom:44px">
+        <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 14px">{{ sec.title }}</h2>
+        <sc-for list="{{ sec.paras }}" as="para" hint-placeholder-count="3">
+          <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-200);margin:0 0 14px">{{ para.text }}</p>
+        </sc-for>
+      </section>
+    </sc-for>
+    <div style="border-top:1px solid var(--color-neutral-900);padding-top:32px">
+      <a href="#" onClick="{{ goCasos }}" class="btn btn-secondary" style="font-size:13px;text-decoration:none">Ver todos los patrones</a>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- SERVICIOS -->
+  <sc-if value="{{ isServicios }}">
+  <div style="max-width:1080px;margin:0 auto;padding:72px 28px 104px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+      <span style="width:3px;height:17px;border-radius:2px;background:var(--color-accent);display:block"></span>
+      <span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300)">Servicios</span>
+    </div>
+    <h1 style="font-size:clamp(32px,4.6vw,52px);letter-spacing:-0.03em;margin:0 0 18px;max-width:22ch">Consultoría con criterio, no con plantillas.</h1>
+    <p style="font-size:17px;color:var(--color-neutral-300);max-width:58ch;margin:0 0 56px">Reviso y diseño arquitecturas evaluando las compensaciones reales de tu contexto: equipo, presupuesto, plazos y riesgo. Si lo que necesitas es más simple de lo que crees, te lo digo.</p>
+
+    <div style="display:flex;flex-direction:column;gap:0;margin-bottom:72px">
+      <sc-for list="{{ offerings }}" as="off" hint-placeholder-count="3">
+        <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:40px 0;border-top:1px solid var(--color-neutral-900)">
+          <div>
+            <p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 10px">{{ off.n }}</p>
+            <h2 style="font-size:26px;letter-spacing:-0.02em;margin:0 0 12px">{{ off.title }}</h2>
+            <p style="font-size:16px;line-height:1.6;color:var(--color-neutral-300);margin:0">{{ off.summary }}</p>
+          </div>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px">
+            <sc-for list="{{ off.items }}" as="it" hint-placeholder-count="5">
+              <li style="display:grid;grid-template-columns:18px minmax(0,1fr);gap:10px;font-size:15px;color:var(--color-neutral-200);line-height:1.55">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:4px" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+                <span>{{ it.text }}</span>
+              </li>
+            </sc-for>
+          </ul>
+        </section>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+      <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">Cómo trabajo</h2>
+    </div>
+    <p style="font-size:16px;color:var(--color-neutral-300);max-width:52ch;margin:0 0 28px">Cuatro pasos, sin sorpresas en el camino.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:64px">
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+        <p style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-500);margin:0 0 6px">Paso 01</p>
+        <h3 style="font-size:17px;margin:0 0 8px">Diagnóstico</h3>
+        <p style="font-size:14px;line-height:1.6;color:var(--color-neutral-300);margin:0">Una llamada de 45 minutos, sin costo, para entender el contexto, el equipo y la restricción real.</p>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M9 12h7"></path><path d="M9 16h5"></path><path d="M14.5 3v4.5H19"></path></svg>
+        <p style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-500);margin:0 0 6px">Paso 02</p>
+        <h3 style="font-size:17px;margin:0 0 8px">Propuesta</h3>
+        <p style="font-size:14px;line-height:1.6;color:var(--color-neutral-300);margin:0">Alcance escrito, entregables y plazo. Precio fijo por proyecto o por hora, según lo que convenga.</p>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><path d="M4 17l5-5 3 3 4-4 4 4"></path><path d="M4 20h16"></path><circle cx="8" cy="7" r="2"></circle></svg>
+        <p style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-500);margin:0 0 6px">Paso 03</p>
+        <h3 style="font-size:17px;margin:0 0 8px">Ejecución</h3>
+        <p style="font-size:14px;line-height:1.6;color:var(--color-neutral-300);margin:0">Trabajo con tu equipo, no encima de él. Decisiones documentadas y avance visible cada semana.</p>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><path d="M12 3l8 3v6c0 4.4-3.3 8.1-8 9-4.7-.9-8-4.6-8-9V6l8-3z"></path><path d="M8.8 12l2.2 2.2 4.2-4.4"></path></svg>
+        <p style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-500);margin:0 0 6px">Paso 04</p>
+        <h3 style="font-size:17px;margin:0 0 8px">Entrega y traspaso</h3>
+        <p style="font-size:14px;line-height:1.6;color:var(--color-neutral-300);margin:0">Documentación de arquitectura, decisiones y riesgos, para que el equipo siga sin depender de mí.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--color-section);background-image:radial-gradient(520px 220px at 88% 130%, var(--color-section-glow), transparent 70%);border-radius:var(--radius-lg);padding:40px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-end">
+      <div>
+        <p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 12px">Inversión</p>
+        <p style="font-family:var(--font-heading);font-size:34px;letter-spacing:-0.02em;color:var(--color-neutral-100);margin:0 0 10px">Desde USD 00 por hora</p>
+        <p style="font-size:14px;color:var(--color-neutral-200);margin:0;max-width:46ch">Rango orientativo, pendiente de definir. El precio final depende del alcance, y siempre queda por escrito antes de empezar.</p>
+      </div>
+      <a href="mailto:josuemercally@outlook.com?subject=Cotizaci%C3%B3n" class="btn btn-primary" style="font-size:14px;padding:11px 20px;text-decoration:none">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>
+        Pedir una cotización
+      </a>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- SOBRE MÍ -->
+  <sc-if value="{{ isSobre }}">
+  <div style="max-width:1080px;margin:0 auto;padding:72px 28px 104px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:start;margin-bottom:80px">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <span style="width:3px;height:17px;border-radius:2px;background:var(--color-accent);display:block"></span>
+          <span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300)">Sobre mí</span>
+        </div>
+        <h1 style="font-size:clamp(32px,4.6vw,50px);letter-spacing:-0.03em;margin:0 0 20px">Josué Mercadillo</h1>
+        <p style="font-size:17px;line-height:1.6;color:var(--color-neutral-200);margin:0 0 16px">Senior Software Engineer y Technical Lead, enfocado en arquitectura de software empresarial. Más de nueve años diseñando, construyendo y operando sistemas críticos de negocio en entornos internacionales y multicloud.</p>
+        <p style="font-size:16px;line-height:1.65;color:var(--color-neutral-300);margin:0 0 16px">Base práctica fuerte en .NET, C# y JavaScript, combinada con arquitectura de aplicaciones, infraestructura cloud, sistemas distribuidos, seguridad, DevOps y operación en producción. Traduzco requisitos de negocio en arquitecturas de aplicación, integración e infraestructura: documento soluciones, componentes e interfaces, evalúo alternativas tecnológicas y mitigo riesgos de seguridad, tecnología y continuidad.</p>
+        <p style="font-size:16px;line-height:1.65;color:var(--color-neutral-300);margin:0">Actualmente curso una Maestría en Arquitectura de Software, con foco a largo plazo en arquitectura empresarial, liderazgo técnico y estrategia de ingeniería.</p>
+      </div>
+      <figure style="margin:0">
+        <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(160deg, var(--color-accent-900), var(--color-neutral-900) 70%);box-shadow:var(--shadow-md)">
+          <div style="position:absolute;inset:0;background:radial-gradient(300px 260px at 70% 15%, color-mix(in srgb, var(--color-accent) 30%, transparent), transparent 70%)"></div>
+          <img src="assets/josue.png" alt="Retrato de Josué Mercadillo" style="position:relative;display:block;width:100%;height:auto">
+        </div>
+        <figcaption>San Salvador, El Salvador</figcaption>
+      </figure>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+      <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+      <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">Formación</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0;margin-bottom:72px">
+      <div style="display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);gap:24px;padding:20px 0;border-top:1px solid var(--color-neutral-900)">
+        <div style="font-size:13px;color:var(--color-neutral-500)">2026 a hoy</div>
+        <div>
+          <h3 style="font-size:17px;margin:0 0 4px">Maestría en Arquitectura de Software</h3>
+          <p style="font-size:14px;color:var(--color-neutral-400);margin:0">Universidad Don Bosco, El Salvador</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);gap:24px;padding:20px 0;border-top:1px solid var(--color-neutral-900)">
+        <div style="font-size:13px;color:var(--color-neutral-500)">2022</div>
+        <div>
+          <h3 style="font-size:17px;margin:0 0 4px">Ingeniería en Sistemas</h3>
+          <p style="font-size:14px;color:var(--color-neutral-400);margin:0">Universidad Tecnológica de El Salvador, con preespecialización en Gestión de Proyectos de TI (PMBOK)</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);gap:24px;padding:20px 0;border-top:1px solid var(--color-neutral-900);border-bottom:1px solid var(--color-neutral-900)">
+        <div style="font-size:13px;color:var(--color-neutral-500)">2017</div>
+        <div>
+          <h3 style="font-size:17px;margin:0 0 4px">Técnico en Contaduría Comercial</h3>
+          <p style="font-size:14px;color:var(--color-neutral-400);margin:0">Instituto Técnico Obrero Empresarial Don Bosco</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+      <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+      <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">Certificaciones y formación continua</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:72px">
+      <sc-for list="{{ certs }}" as="cert" hint-placeholder-count="13">
+        <div style="display:grid;grid-template-columns:20px minmax(0,1fr);gap:11px;align-items:start;background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:14px 16px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px" aria-hidden="true"><circle cx="12" cy="9.5" r="5.5"></circle><path d="M9 14.5L7.5 21l4.5-2.4L16.5 21 15 14.5"></path></svg>
+          <div>
+            <p style="font-size:15px;color:var(--color-neutral-100);margin:0 0 3px;line-height:1.4">{{ cert.name }}</p>
+            <p style="font-size:13px;color:var(--color-neutral-500);margin:0">{{ cert.issuer }}</p>
+            <sc-if value="{{ cert.inProgress }}">
+              <span class="tag tag-outline" style="margin-top:8px">En curso</span>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="width:3px;height:15px;border-radius:2px;background:var(--color-accent);display:block"></span>
+      <h2 style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0">Libros que recomiendo</h2>
+    </div>
+    <p style="font-size:16px;color:var(--color-neutral-300);max-width:52ch;margin:0 0 26px">Los tres que más han cambiado cómo evalúo una decisión de arquitectura.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+      <sc-for list="{{ books }}" as="book" hint-placeholder-count="3">
+        <div class="card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px" aria-hidden="true"><path d="M4 4.5h5a3 3 0 0 1 3 3V20a2.5 2.5 0 0 0-2.5-2.5H4z"></path><path d="M20 4.5h-5a3 3 0 0 0-3 3V20a2.5 2.5 0 0 1 2.5-2.5H20z"></path></svg>
+          <div class="card-title">{{ book.title }}</div>
+          <div class="card-kicker" style="margin:0 0 8px">{{ book.author }}</div>
+          <div class="card-body">{{ book.why }}</div>
+          <div class="card-meta">
+            <a href="{{ book.link }}" target="_blank" rel="noopener" style="font-size:13px;display:inline-flex;align-items:center;gap:6px">
+              Ver el libro
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16L16 8"></path><path d="M9.5 8H16v6.5"></path></svg>
+            </a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- CONTACTO -->
+  <sc-if value="{{ isContacto }}">
+  <div style="max-width:1080px;margin:0 auto;padding:72px 28px 104px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+      <span style="width:3px;height:17px;border-radius:2px;background:var(--color-accent);display:block"></span>
+      <span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300)">Contacto</span>
+    </div>
+    <h1 style="font-size:clamp(32px,4.6vw,52px);letter-spacing:-0.03em;margin:0 0 18px;max-width:22ch">Cuéntame qué estás construyendo.</h1>
+    <p style="font-size:17px;color:var(--color-neutral-300);max-width:56ch;margin:0 0 56px">Respondo en menos de 24 horas hábiles. Si tu caso no es para mí, te lo digo de una vez y te ahorro el tiempo.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start">
+      <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px">
+        <div class="field">
+          <label for="mc-name">Tu nombre</label>
+          <input class="input" id="mc-name" type="text" value="{{ formName }}" onInput="{{ setName }}" placeholder="Nombre y apellido">
+        </div>
+        <div class="field">
+          <label for="mc-company">Empresa</label>
+          <input class="input" id="mc-company" type="text" value="{{ formCompany }}" onInput="{{ setCompany }}" placeholder="Opcional">
+        </div>
+        <div class="field">
+          <label for="mc-email">Tu correo</label>
+          <input class="input" id="mc-email" type="email" value="{{ formEmail }}" onInput="{{ setEmail }}" placeholder="nombre@empresa.com">
+        </div>
+        <div class="field">
+          <label for="mc-topic">Tema</label>
+          <select class="input" id="mc-topic" value="{{ formTopic }}" onChange="{{ setTopic }}">
+            <option value="Análisis de arquitectura">Análisis de arquitectura</option>
+            <option value="Liderazgo técnico">Liderazgo técnico</option>
+            <option value="Ciberseguridad (SAST, DAST)">Ciberseguridad (SAST, DAST)</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mc-msg">Contexto</label>
+          <textarea class="input" id="mc-msg" rows="5" value="{{ formMessage }}" onInput="{{ setMessage }}" placeholder="Qué estás construyendo, qué te está bloqueando y en qué plazo" style="resize:vertical;font-family:var(--font-body)"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;font-size:14px;padding:11px 20px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5L20.5 4l-7 16.5-2.6-6.4z"></path><path d="M10.9 14.1L20.5 4"></path></svg>
+          Enviar por correo
+        </button>
+        <p style="font-size:13px;color:var(--color-neutral-500);margin:0">El botón abre tu cliente de correo con el mensaje ya redactado.</p>
+      </form>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px">
+          <p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 16px">Directo</p>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:20px minmax(0,1fr);gap:11px;align-items:start">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-top:3px" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>
+              <div>
+                <p style="font-size:13px;color:var(--color-neutral-500);margin:0 0 2px">Correo</p>
+                <a href="mailto:josuemercally@outlook.com" style="font-size:15px">josuemercally@outlook.com</a>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:20px minmax(0,1fr);gap:11px;align-items:start">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-top:3px" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"></path><circle cx="12" cy="10" r="2.6"></circle></svg>
+              <div>
+                <p style="font-size:13px;color:var(--color-neutral-500);margin:0 0 2px">Ubicación</p>
+                <p style="font-size:15px;color:var(--color-neutral-100);margin:0">San Salvador, El Salvador</p>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:20px minmax(0,1fr);gap:11px;align-items:start">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-top:3px" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3 2"></path></svg>
+              <div>
+                <p style="font-size:13px;color:var(--color-neutral-500);margin:0 0 2px">Zona horaria</p>
+                <p style="font-size:15px;color:var(--color-neutral-100);margin:0">UTC menos 6, con solape completo con EE.UU.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--color-surface);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);padding:22px">
+          <p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 16px">En la red</p>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="https://github.com/mercally" target="_blank" rel="noopener" style="display:grid;grid-template-columns:20px minmax(0,1fr) 16px;gap:11px;align-items:center;text-decoration:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"></path><path d="M15 8l4 4-4 4"></path></svg>
+              <span style="font-size:15px;color:var(--color-neutral-100)">GitHub, repos y proyectos públicos</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-neutral-500)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16L16 8"></path><path d="M9.5 8H16v6.5"></path></svg>
+            </a>
+            <a href="https://linkedin.com/in/josuemercally" target="_blank" rel="noopener" style="display:grid;grid-template-columns:20px minmax(0,1fr) 16px;gap:11px;align-items:center;text-decoration:none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-400)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"></path><circle cx="17" cy="7" r="2.4"></circle><path d="M16 13c2.7.3 4.5 2.3 4.5 5"></path></svg>
+              <span style="font-size:15px;color:var(--color-neutral-100)">LinkedIn, trayectoria completa</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-neutral-500)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16L16 8"></path><path d="M9.5 8H16v6.5"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  </main>
+
+  <footer style="border-top:1px solid var(--color-neutral-900);background:var(--color-bg)">
+    <div style="max-width:1080px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
+      <span style="font-size:13px;color:var(--color-neutral-600)">Josué Mercadillo · Arquitectura de software · San Salvador, El Salvador</span>
+      <div style="display:flex;gap:18px">
+        <a href="https://github.com/mercally" target="_blank" rel="noopener" style="font-size:13px;color:var(--color-neutral-500)">GitHub</a>
+        <a href="https://linkedin.com/in/josuemercally" target="_blank" rel="noopener" style="font-size:13px;color:var(--color-neutral-500)">LinkedIn</a>
+        <a href="mailto:josuemercally@outlook.com" style="font-size:13px;color:var(--color-neutral-500)">Correo</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Inicio&quot;},&quot;showTestimonials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Inicio&quot;}}">
+const PATTERNS = [
+  { slug: 'cqrs', name: 'CQRS', summary: 'Separar el modelo de lectura del modelo de escritura en vez de usar un único modelo para ambos.', sections: [
+    { title: 'Qué resuelve', paras: [
+      'Los comandos (escritura) validan reglas de negocio e invariantes; las consultas (lectura) solo proyectan datos para la UI.',
+      'Permite optimizar lectura y escritura por separado: el modelo de escritura prioriza consistencia, el de lectura prioriza velocidad de consulta.',
+      'Es independiente de Event Sourcing, se puede aplicar CQRS con una base de datos relacional normal, sin event store.' ] },
+    { title: 'Cuándo tiene sentido', paras: [
+      'El dominio tiene lógica de escritura compleja (validaciones, invariantes) mientras que las lecturas son mayormente de reporte o listado.',
+      'Las cargas de lectura y escritura son muy distintas en volumen o forma, y escalarlas juntas es ineficiente.' ] },
+    { title: 'Compensaciones', paras: [
+      'Más piezas móviles: dos modelos (o más) que mantener sincronizados en vez de uno.',
+      'Si se combina con proyecciones asíncronas, introduce consistencia eventual: la UI puede mostrar datos desactualizados por un instante.',
+      'Para un CRUD simple es sobreingeniería, el costo de la separación no se paga solo si no hay complejidad de dominio real.' ] } ] },
+  { slug: 'clean-architecture', name: 'Clean Architecture y Hexagonal', summary: 'Aislar las reglas de negocio de los detalles técnicos (framework, base de datos, UI) mediante capas y puertos.', sections: [
+    { title: 'Qué resuelve', paras: [
+      'El dominio y los casos de uso no dependen de frameworks, ORMs ni proveedores externos, dependen solo de interfaces (puertos).',
+      'La infraestructura (base de datos, HTTP, colas) implementa esas interfaces (adaptadores) y se puede reemplazar sin tocar el dominio.',
+      'Facilita probar la lógica de negocio con tests unitarios rápidos, sin levantar base de datos ni servidor.' ] },
+    { title: 'Cuándo tiene sentido', paras: [
+      'El sistema va a vivir mucho tiempo y es probable que cambien piezas de infraestructura (base de datos, proveedor de pagos, framework web).',
+      'Hay reglas de negocio no triviales que merecen quedar aisladas y testeadas independientemente de la capa web.' ] },
+    { title: 'Compensaciones', paras: [
+      'Más indirección: interfaces, mapeos entre capas, más archivos para el mismo caso de uso.',
+      'En un CRUD pequeño o un prototipo, la ceremonia de capas suele costar más de lo que ahorra.',
+      'Requiere disciplina del equipo para no filtrar detalles de infraestructura hacia el dominio "por conveniencia".' ] } ] },
+  { slug: 'event-driven', name: 'Event Driven y Event Sourcing', summary: 'Comunicar servicios mediante eventos de dominio en vez de llamadas directas; opcionalmente, guardar el estado como secuencia de eventos.', sections: [
+    { title: 'Qué resuelve', paras: [
+      'Event-driven desacopla productores y consumidores: el servicio que genera el evento no necesita saber quién lo consume.',
+      'Event Sourcing (distinto de event-driven, aunque suelen combinarse) guarda cada cambio de estado como un evento inmutable en vez de solo el estado final: da auditoría completa y permite reconstruir el estado en cualquier punto del tiempo.' ] },
+    { title: 'Cuándo tiene sentido', paras: [
+      'Varios servicios o módulos necesitan reaccionar al mismo hecho de negocio sin acoplarse entre sí.',
+      'Se necesita auditoría real (quién cambió qué y cuándo) o la capacidad de reproducir el histórico, casos típicos de Event Sourcing.' ] },
+    { title: 'Compensaciones', paras: [
+      'Consistencia eventual: los consumidores procesan el evento después del hecho, no en la misma transacción.',
+      'Depurar un flujo distribuido de eventos es más difícil que seguir una llamada síncrona, se necesita buena trazabilidad y observabilidad.',
+      'Event Sourcing añade complejidad real: versión de eventos, snapshots para no reconstruir todo el historial cada vez, y una curva de aprendizaje para el equipo.' ] } ] },
+  { slug: 'multitenant-saas', name: 'Multitenant SaaS', summary: 'Servir a múltiples clientes (tenants) desde la misma aplicación, decidiendo cuánto comparten a nivel de infraestructura y datos.', sections: [
+    { title: 'Modelos comunes', paras: [
+      'Base de datos compartida con columna tenant_id: más barato de operar, pero requiere disciplina estricta para no filtrar datos entre tenants.',
+      'Schema por tenant o base de datos por tenant: mejor aislamiento y más fácil de justificar ante requisitos de compliance, a costa de más overhead operativo (migraciones, backups, monitoreo por tenant).' ] },
+    { title: 'Cuándo tiene sentido', paras: [
+      'El producto se vende como SaaS a múltiples clientes que no deben ver los datos de otros.',
+      'Aislamiento por tenant separado (schema o base de datos) tiene más sentido cuando hay requisitos regulatorios o clientes grandes que lo exigen contractualmente.' ] },
+    { title: 'Compensaciones', paras: [
+      'Base compartida: un bug en el filtro por tenant es un incidente de seguridad, no solo un bug, cada query debe filtrar correctamente.',
+      'Base o schema por tenant: cada release toca N bases de datos; escalar a miles de tenants vuelve costosa la gestión operativa.',
+      'El modelo elegido afecta directamente cómo se factura, cómo se hacen backups y cómo se cumple con requisitos de residencia de datos.' ] } ] },
+  { slug: 'microservices-vs-monolith', name: 'Microservicios o monolito', summary: 'Decidir entre desplegar como un único servicio o dividir por capacidades de negocio, según el tamaño real del problema y del equipo.', sections: [
+    { title: 'El eje real de la decisión', paras: [
+      'No es "monolito igual a malo, microservicios igual a bueno": es cuánto acoplamiento organizacional y de despliegue puede tolerar el equipo.',
+      'Un monolito modular (módulos con límites claros dentro de un solo despliegue) suele ser el punto intermedio correcto antes de pagar el costo de una red distribuida.' ] },
+    { title: 'Cuándo separar en servicios', paras: [
+      'Equipos distintos necesitan desplegar y escalar sus partes de forma independiente sin coordinar releases.',
+      'Una parte del sistema tiene requisitos de escalado, tecnología o disponibilidad muy distintos al resto.' ] },
+    { title: 'Compensaciones', paras: [
+      'Microservicios cambian problemas de código (acoplamiento en un módulo) por problemas de red (latencia, fallos parciales, versionado de contratos entre servicios).',
+      'Requieren inversión en observabilidad distribuida, CI/CD por servicio y estrategia de datos (cada servicio con su propia base, o compartida) desde el día uno.',
+      'Dividir demasiado pronto, antes de conocer los límites reales del dominio, suele terminar en un "monolito distribuido": todo el dolor de red sin los beneficios de independencia.' ] } ] },
+];
+
+const DECISIONS = [
+  'Plataforma SaaS multitenant: una sola implementación sirve a todas las empresas clientes.',
+  'Adaptador por proveedor (Gmail, Microsoft Graph, Yahoo) detrás de una interfaz común de ingesta de correo.',
+  'Pipeline de filtrado que descarta correos sin adjuntos relevantes antes de tocar almacenamiento.',
+  'Guardado de archivos desacoplado del origen de correo, para poder añadir proveedores sin tocar el almacenamiento.',
+  'Una sola base de datos PostgreSQL compartida, con Row Level Security (RLS) para aislar los datos de cada tenant a nivel de fila.',
+  'Idempotencia por message id: cada correo se identifica por el ID que entrega la sincronización o la notificación webhook, evitando procesarlo dos veces.',
+  'Reintentos con Polly en las llamadas HTTP a los proveedores; si el fallo persiste, el mensaje se registra en una tabla dead letter en PostgreSQL en vez de perderse.',
+  'Rate limiting propio (global y por usuario) implementado en C#, con el estado de peticiones por ventana de tiempo persistido en base de datos, para que un tenant no agote la cuota de otro.',
+  'Rotación de secretos vía Key Vault, con una instancia separada por ambiente.',
+  'Observabilidad con .NET Aspire y OpenTelemetry: correlation id de extremo a extremo, ingestado a Seq (alternativa evaluada: Azure Application Insights, de pago).',
+  'Retención de archivos configurable por usuario, en vez de una política fija global.',
+];
+
+const OFFERINGS = [
+  { n: '01', title: 'Análisis de Arquitectura', summary: 'Revisión y diseño de arquitecturas de software, evaluando compensaciones reales antes de comprometer código.', items: [
+    'Arquitecturas de diseño (monolito modular, microservicios, hexagonal y clean architecture)',
+    'Arquitectura cloud (AWS, Azure) y estrategias de despliegue',
+    'Arquitectura SaaS multitenant',
+    'Diseño de pipelines de datos e ingesta',
+    'Estrategia de branching y flujo de Git para equipos' ] },
+  { n: '02', title: 'Liderazgo Técnico', summary: 'Guía técnica de extremo a extremo en stacks de producción reales, desde el diseño hasta el deploy.', items: [
+    'Proyectos en .NET',
+    'SQL Server y PostgreSQL',
+    'Angular y React',
+    '.NET MAUI' ] },
+  { n: '03', title: 'Análisis de Ciberseguridad', summary: 'Evaluación de seguridad de aplicaciones con herramientas y metodologías estándar de la industria.', items: [
+    'AppSec (seguridad de aplicaciones)',
+    'SAST con SonarQube',
+    'DAST con OWASP ZAP',
+    'CASA Assessment de Google',
+    'Entre otros' ] },
+];
+
+const CERTS = [
+  { name: 'TOGAF 10 Foundation', issuer: 'The Open Group', inProgress: true },
+  { name: 'Azure Solutions Architect Expert (AZ-305)', issuer: 'Microsoft', inProgress: true },
+  { name: 'Applied Skills: seguridad y monitoreo en la nube', issuer: 'Microsoft, mayo 2026' },
+  { name: 'Azure Fundamentals', issuer: 'Microsoft, septiembre 2025' },
+  { name: 'ASP.NET Core: SOLID y Clean Architecture', issuer: 'Pluralsight' },
+  { name: '.NET Microservices: CQRS y Event Sourcing con Kafka', issuer: 'Udemy' },
+  { name: 'DevOps: Docker, Kubernetes, Terraform y Azure DevOps', issuer: 'Udemy' },
+  { name: 'Microsoft Azure para desarrolladores .NET', issuer: 'Udemy' },
+  { name: 'Azure DevOps Assessment (18473)', issuer: 'Microsoft Partner, Costa Rica' },
+  { name: 'Web Applications Charter Member (MCSA)', issuer: 'Microsoft' },
+  { name: 'Software Development Fundamentals (MTA)', issuer: 'Microsoft' },
+  { name: 'Scrum Fundamentals', issuer: 'ScrumStudy' },
+  { name: 'Curso de Liderazgo', issuer: 'Dale Carnegie' },
+];
+
+const BOOKS = [
+  { title: 'Designing Data-Intensive Applications', author: 'Martin Kleppmann', why: 'El libro que más cambia cómo evalúas compensaciones de bases de datos y sistemas distribuidos en decisiones de arquitectura reales.', link: 'https://dataintensive.net/' },
+  { title: 'Clean Architecture', author: 'Robert C. Martin', why: 'Base conceptual útil para justificar límites de capas y por qué el dominio no debería depender de infraestructura.', link: 'https://www.oreilly.com/library/view/clean-architecture-a/9780134494272/' },
+  { title: 'Domain-Driven Design', author: 'Eric Evans', why: 'Referencia obligada para diseñar bounded contexts y evitar que un modelo único intente servir a todo el sistema.', link: 'https://www.domainlanguage.com/ddd/blue-book/' },
+];
+
+class Component extends DCLogic {
+  state = { view: 'home', arch: 0, hover: null, openTo: null, pattern: 'cqrs', name: '', company: '', email: '', topic: 'Análisis de arquitectura', message: '' };
+
+  go = (view, extra) => (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    this.setState(Object.assign({ view }, extra || {}));
+    if (typeof window !== 'undefined') window.scrollTo(0, 0);
+  };
+
+  submit = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const s = this.state;
+    const body = [
+      'Nombre: ' + (s.name || ''),
+      'Empresa: ' + (s.company || ''),
+      'Correo: ' + (s.email || ''),
+      'Tema: ' + (s.topic || ''),
+      '',
+      s.message || '',
+    ].join('\n');
+    const href = 'mailto:josuemercally@outlook.com?subject=' +
+      encodeURIComponent('Consulta: ' + (s.topic || 'arquitectura')) +
+      '&body=' + encodeURIComponent(body);
+    if (typeof window !== 'undefined') window.location.href = href;
+  };
+
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      if (this.state.hover === null && this.state.view === 'home') {
+        this.setState((s) => ({ arch: (s.arch + 1) % ARCHS.length }));
+      }
+    }, 6000);
+  }
+
+  componentWillUnmount() {
+    if (this.timer) clearInterval(this.timer);
+  }
+
+  diagram() {
+    const arch = ARCHS[this.state.arch] || ARCHS[0];
+    const ROWS = [30, 120, 210];
+    const NW = 96, NH = 40, LX = 8, CX = 162, RX = 316;
+    const raw = [];
+    arch.left.forEach((n, i) => raw.push({ n, x: LX, y: ROWS[i] }));
+    raw.push({ n: arch.center, x: CX, y: ROWS[1], big: true });
+    arch.right.forEach((n, i) => raw.push({ n, x: RX, y: ROWS[i] }));
+    const hov = this.state.hover;
+    const nodes = raw.map((it, i) => {
+      const on = hov === i;
+      return {
+        key: this.state.arch + ':' + i,
+        label: it.n.label, x: it.x, y: it.y, w: NW, h: NH,
+        stroke: on ? 'var(--color-accent)' : (it.big ? 'var(--color-accent-500)' : 'var(--color-accent-700)'),
+        sw: on || it.big ? 1.8 : 1.3,
+        labelStyle: 'position:absolute;pointer-events:auto;cursor:pointer;box-sizing:border-box;' +
+          'left:' + (it.x / 420 * 100) + '%;top:' + (it.y / 300 * 100) + '%;' +
+          'width:' + (NW / 420 * 100) + '%;height:' + (NH / 300 * 100) + '%;' +
+          'display:flex;align-items:center;justify-content:center;text-align:center;padding:0 6px;' +
+          'font-size:clamp(12px,1.1vw,13.5px);line-height:1.15;letter-spacing:0.01em;' +
+          'color:' + (on ? 'var(--color-neutral-100)' : 'var(--color-accent-200)'),
+        enter: () => this.setState({ hover: i }),
+        leave: () => this.setState({ hover: null }),
+        click: this.go('casos'),
+      };
+    });
+    const edges = [
+      { d: 'M104 50C133 50 133 120 162 130' }, { d: 'M104 140H162' },
+      { d: 'M104 230C133 230 133 160 162 150' },
+      { d: 'M258 130C287 120 287 50 316 50' }, { d: 'M258 140H316' },
+      { d: 'M258 150C287 160 287 230 316 230' },
+    ];
+    const flows = [
+      { d: 'M104 50C133 50 133 120 162 130H258C287 120 287 50 316 50', style: 'animation:mcFlow 4.4s linear infinite' },
+      { d: 'M104 140H316', style: 'animation:mcFlow 5.8s linear infinite .5s' },
+      { d: 'M104 230C133 230 133 160 162 150H258C287 160 287 230 316 230', style: 'animation:mcFlow 6.6s linear infinite 1.2s' },
+    ];
+    const hovered = hov === null ? null : raw[hov];
+    return {
+      nodes, edges, flows,
+      archName: arch.name,
+      detailLabel: hovered ? hovered.n.label : 'Arquitectura en operación',
+      detailText: hovered ? hovered.n.detail : arch.caption,
+      archDots: ARCHS.map((a, i) => ({
+        name: a.name,
+        pick: () => this.setState({ arch: i, hover: null }),
+        style: 'width:26px;height:4px;border-radius:2px;border:0;cursor:pointer;padding:0;background:' +
+          (i === this.state.arch ? 'var(--color-accent)' : 'var(--color-neutral-800)'),
+      })),
+    };
+  }
+
+  renderVals() {
+    const v = this.state.view;
+    const pat = PATTERNS.find((p) => p.slug === this.state.pattern) || PATTERNS[0];
+    const dia = this.diagram();
+    return Object.assign({}, dia, {
+      tradeoffs: TRADEOFFS.map((t, i) => ({
+        label: t.label, headline: t.headline, a: t.a, aBody: t.aBody, b: t.b, bBody: t.bBody, verdict: t.verdict,
+        open: this.state.openTo === i,
+        chevron: this.state.openTo === i ? 'transform:rotate(180deg);transition:transform 200ms ease' : 'transition:transform 200ms ease',
+        toggle: () => this.setState((s) => ({ openTo: s.openTo === i ? null : i })),
+      })),
+    }, {
+      isHome: v === 'home', isCasos: v === 'casos', isCaso: v === 'caso',
+      isPatron: v === 'patron', isServicios: v === 'servicios',
+      isSobre: v === 'sobre', isContacto: v === 'contacto',
+      showStats: this.props.showStats ?? true,
+      showTestimonials: this.props.showTestimonials ?? true,
+      goHome: this.go('home'), goCasos: this.go('casos'), goCaso: this.go('caso'),
+      goServicios: this.go('servicios'), goSobre: this.go('sobre'), goContacto: this.go('contacto'),
+      goPatMultiTenant: this.go('patron', { pattern: 'multitenant-saas' }),
+      goPatClean: this.go('patron', { pattern: 'clean-architecture' }),
+      patterns: PATTERNS.map((p) => ({ name: p.name, summary: p.summary, open: this.go('patron', { pattern: p.slug }) })),
+      patternName: pat.name,
+      patternSummary: pat.summary,
+      patternSections: pat.sections.map((s) => ({ title: s.title, paras: s.paras.map((t) => ({ text: t })) })),
+      decisions: DECISIONS.map((t, i) => ({ n: String(i + 1).padStart(2, '0'), text: t })),
+      offerings: OFFERINGS.map((o) => ({ n: o.n, title: o.title, summary: o.summary, items: o.items.map((t) => ({ text: t })) })),
+      certs: CERTS.map((c) => ({ name: c.name, issuer: c.issuer, inProgress: !!c.inProgress })),
+      books: BOOKS,
+      formName: this.state.name, formCompany: this.state.company, formEmail: this.state.email,
+      formTopic: this.state.topic, formMessage: this.state.message,
+      setName: (e) => this.setState({ name: e.target.value }),
+      setCompany: (e) => this.setState({ company: e.target.value }),
+      setEmail: (e) => this.setState({ email: e.target.value }),
+      setTopic: (e) => this.setState({ topic: e.target.value }),
+      setMessage: (e) => this.setState({ message: e.target.value }),
+      onSubmit: this.submit,
+    });
+  }
+}
+
+const ARCHS = [
+  {
+    name: 'Pagos multitenant',
+    caption: 'Plataforma gubernamental con una base de datos aislada por cliente. Pasa el mouse sobre una pieza para ver la decisión detrás.',
+    left: [
+      { label: 'Portal ciudadano', detail: 'El mismo despliegue sirve a todos los condados: el tenant se resuelve al entrar, no duplicando instalaciones.' },
+      { label: 'Caja municipal', detail: 'El cobro presencial y el de línea comparten el mismo motor de facturación: una sola regla de negocio, dos canales.' },
+      { label: 'API de terceros', detail: 'Las integraciones externas entran por un contrato versionado, nunca directo contra la base de datos.' },
+    ],
+    center: { label: 'Motor de pagos', detail: 'Concentra las reglas de facturación y cobro. Cada sistema que llega es un adaptador, no una rama de lógica nueva.' },
+    right: [
+      { label: 'SQL cliente A', detail: 'Una base de datos aislada por cliente: el aislamiento es trivial de auditar y fácil de justificar ante compliance.' },
+      { label: 'SQL cliente B', detail: 'El precio de ese aislamiento: cada release toca N bases, y backups y monitoreo se multiplican por cliente.' },
+      { label: 'Conciliación', detail: 'Proceso asíncrono que cuadra pagos contra facturas y deja rastro de cada diferencia.' },
+    ],
+  },
+  {
+    name: 'Integración empresarial',
+    caption: 'Sistemas que no se hablaban, comunicándose por eventos. Pasa el mouse sobre una pieza para ver la decisión detrás.',
+    left: [
+      { label: 'Sistema legado', detail: 'Lo viejo no se reescribe para integrarlo: se envuelve detrás de un contrato y se deja de tocar.' },
+      { label: 'Servicio WCF', detail: 'SOAP y WCF siguen vivos en la empresa. Conviven con REST detrás del mismo bus, sin forzar una migración.' },
+      { label: 'App móvil', detail: 'El cliente móvil consume el mismo contrato que el resto: un solo lugar donde cambia la regla de negocio.' },
+    ],
+    center: { label: 'Bus de mensajes', detail: 'Los servicios se comunican por eventos, no por llamadas directas: quien publica no necesita saber quién consume.' },
+    right: [
+      { label: 'API REST', detail: 'La API expone casos de uso, no tablas. El modelo de escritura valida invariantes; el de lectura solo proyecta.' },
+      { label: 'Worker', detail: 'El trabajo lento sale del request: procesamiento en background con reintentos y backoff.' },
+      { label: 'Dead letter', detail: 'Si el reintento se agota, el mensaje queda registrado en dead letter. Nada se pierde en silencio.' },
+    ],
+  },
+  {
+    name: 'Observabilidad',
+    caption: 'Una traza que sobrevive al salto asíncrono. Pasa el mouse sobre una pieza para ver la decisión detrás.',
+    left: [
+      { label: 'API', detail: 'Cada request entra con un correlation id que viaja hasta el último salto del sistema.' },
+      { label: 'Workers', detail: 'El trabajo asíncrono hereda el mismo correlation id: la traza no se corta al salir del request.' },
+      { label: 'Jobs', detail: 'Los procesos programados se instrumentan igual que el resto, o se vuelven el punto ciego donde fallan las cosas.' },
+    ],
+    center: { label: 'OpenTelemetry', detail: 'Una sola capa de instrumentación, estándar y sin amarre a proveedor: el destino se cambia sin tocar el código.' },
+    right: [
+      { label: 'Seq', detail: 'Consulta estructurada de logs por correlation id. Alternativa evaluada: Application Insights, de pago.' },
+      { label: 'Grafana', detail: 'Métricas y paneles para ver la tendencia, no solo el incidente de hoy.' },
+      { label: 'Alertas', detail: 'Alerta sobre síntoma de negocio, no sobre CPU: lo que importa es si dejó de entrar trabajo al sistema.' },
+    ],
+  },
+];
+
+const TRADEOFFS = [
+  {
+    label: 'Aislamiento de datos',
+    headline: 'Base compartida con RLS, o una base por cliente',
+    a: 'Base compartida con Row Level Security',
+    aBody: 'Una sola base baja el costo operativo y hace que cada migración se ejecute una vez, no N veces. El aislamiento se aplica en el motor de base de datos, no en la capa de aplicación.',
+    b: 'Una base de datos por cliente',
+    bBody: 'Aislamiento fácil de auditar y de justificar ante compliance. Se paga en operación: cada release toca N bases, y backups, monitoreo y facturación se multiplican por cliente.',
+    verdict: 'Compartida con RLS por defecto, porque un error en el filtro deja de ser un bug y pasa a ser un incidente de seguridad, y eso se resuelve en el motor. Base por cliente solo cuando el contrato o el regulador lo exigen.',
+  },
+  {
+    label: 'Forma del despliegue',
+    headline: 'Monolito modular, o microservicios',
+    a: 'Monolito modular',
+    aBody: 'Límites claros dentro de un solo despliegue: la disciplina de módulos sin pagar latencia, fallos parciales ni versionado de contratos entre servicios.',
+    b: 'Microservicios',
+    bBody: 'Equipos que despliegan sin coordinarse y partes que escalan por separado. Exige observabilidad distribuida, CI/CD por servicio y estrategia de datos desde el día uno.',
+    verdict: 'Monolito modular primero, casi siempre. El eje real no es técnico: es cuánto acoplamiento de despliegue tolera el equipo. Dividir antes de conocer los límites del dominio produce un monolito distribuido: todo el dolor de red, ninguna independencia.',
+  },
+  {
+    label: 'Seguridad de aplicaciones',
+    headline: 'SAST en el pipeline, o DAST sobre el sistema corriendo',
+    a: 'SAST con SonarQube',
+    aBody: 'Revisa el código en cada push y corta la clase de fallo conocida antes del merge. Barato y temprano. No ve lo que solo existe en ejecución.',
+    b: 'DAST con OWASP ZAP',
+    bBody: 'Ataca el sistema desplegado y encuentra lo que depende del entorno: configuración, autenticación real, comportamiento de la sesión. Más lento y necesita un ambiente parecido a producción.',
+    verdict: 'Los dos, en ese orden. SAST es el filtro diario, DAST es la prueba de realidad. Esa combinación, más gestión de secretos, es lo que un CASA Assessment espera encontrar.',
+  },
+  {
+    label: 'Puesta en producción',
+    headline: 'CI/CD automatizado, o deploy manual',
+    a: 'CI/CD automatizado',
+    aBody: 'El pipeline es la única vía a producción: build, pruebas, análisis y despliegue reproducible. Cuesta días montarlo y los devuelve el primer mes.',
+    b: 'Deploy manual',
+    bBody: 'Sin costo inicial, control total en cada paso. También sin trazabilidad de qué se subió, dependencia de quien sabe hacerlo y una ventana de error humano en cada release.',
+    verdict: 'CI/CD desde el primer día, incluso en proyectos de una persona. Un deploy manual no es más simple, solo mueve el trabajo al peor momento posible: cuando hay que reaccionar rápido.',
+  },
+  {
+    label: 'Repositorios y pipelines',
+    headline: 'GitHub, o Azure DevOps',
+    a: 'GitHub y GitHub Actions',
+    aBody: 'Mejor experiencia de desarrollo, ecosistema de acciones enorme y el lugar natural para lo abierto o lo que atrae talento.',
+    b: 'Azure DevOps',
+    bBody: 'Boards, Repos, Pipelines y Artifacts en una sola herramienta gobernada, con permisos y trazabilidad que las empresas grandes ya saben auditar.',
+    verdict: 'GitHub cuando el equipo es de producto y la velocidad manda. Azure DevOps cuando la empresa ya vive en Microsoft y el requisito real es gobierno y trazabilidad, no elegancia del pipeline.',
+  },
+  {
+    label: 'Suite de trabajo e identidad',
+    headline: 'Microsoft 365, o Google Workspace',
+    a: 'Microsoft 365',
+    aBody: 'Identidad con Entra ID, integración nativa con el stack .NET y Azure, y Microsoft Graph como puerta a correo, calendario y archivos.',
+    b: 'Google Workspace',
+    bBody: 'Más simple de administrar, mejor colaboración en documentos y una API de Gmail directa. Menos herramientas de gobierno para una empresa regulada.',
+    verdict: 'Microsoft 365 cuando el resto del stack ya es Microsoft: la identidad deja de ser un proyecto aparte. Google Workspace cuando el equipo es chico y lo que pesa es colaborar, no gobernar. En mi plataforma integro los dos, porque los clientes viven en ambos mundos.',
+  },
+];
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<div class="animate-enter max-w-6xl mx-auto px-6 py-12 md:py-16">
+
+  <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-3">
+    {{ t().title }}
+  </h1>
+  <p class="text-base text-gray-600 dark:text-gray-400 max-w-2xl mb-12">
+    {{ t().subtitle }}
+  </p>
+
+  <app-page-nav-layout [sections]="navSections()" [ariaLabel]="t().onThisPage">
+
+  <!-- CASE STUDIES -->
+  <section id="case-studies-section" class="scroll-mt-24 mb-16">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-[3px] h-3.5 rounded-sm bg-violet-600 dark:bg-violet-400 block"></span>
+      <h2 class="text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400">{{ t().casesKicker }}</h2>
+    </div>
+
+    @if (caseStudies.length) {
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        @for (cs of caseStudies; track cs.slug) {
+          <a [routerLink]="['/case-studies', cs.slug]"
+            class="flex flex-col rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:border-violet-400 dark:hover:border-violet-600 transition-colors">
+            <div class="flex flex-wrap gap-2 mb-3.5">
+              @for (tag of (lang() === 'es' ? cs.tagsEs : cs.tagsEn); track tag) {
+                <span class="rounded-full text-xs px-2.5 py-1 bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400">{{ tag }}</span>
+              }
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-1.5">{{ lang() === 'es' ? cs.titleEs : cs.titleEn }}</h3>
+            <span class="text-xs text-gray-500 dark:text-gray-500 mb-3">{{ cs.dateAdded | date:'mediumDate':undefined:(lang() === 'es' ? 'es' : 'en') }}</span>
+            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 flex-1">{{ lang() === 'es' ? cs.oneLinerEs : cs.oneLinerEn }}</p>
+            <span class="inline-flex items-center gap-2 text-sm text-violet-700 dark:text-violet-400">
+              {{ t().readCase }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </span>
+          </a>
+        }
+      </div>
+    } @else {
+      <p class="text-sm text-gray-500 dark:text-gray-500">{{ t().empty }}</p>
+    }
+  </section>
+
+  <!-- ARCHITECTURE PATTERNS -->
+  <section id="patterns-section" class="scroll-mt-24">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-[3px] h-3.5 rounded-sm bg-violet-600 dark:bg-violet-400 block"></span>
+      <h2 class="text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400">{{ t().patternsKicker }}</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+      @for (pattern of patterns; track pattern.slug) {
+        <a [routerLink]="['/patterns', pattern.slug]"
+          class="block rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-violet-400 dark:hover:border-violet-600 transition-colors">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-violet-600 dark:text-violet-400 mb-3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"></path><path d="M3 12l9 5 9-5"></path><path d="M3 16.5l9 5 9-5"></path></svg>
+          <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100 mb-1.5">{{ pattern.name }}</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-500 leading-relaxed">{{ lang() === 'es' ? pattern.summaryEs : pattern.summaryEn }}</p>
+        </a>
+      }
+    </div>
+  </section>
+
+  </app-page-nav-layout>
+
+</div>

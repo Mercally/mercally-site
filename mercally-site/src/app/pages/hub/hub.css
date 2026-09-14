@@ -1,0 +1,5 @@
+@keyframes mcFlow {
+  to {
+    stroke-dashoffset: -200;
+  }
+}

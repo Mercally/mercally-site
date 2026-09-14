@@ -1,0 +1,25 @@
+services:
+  app:
+    image: ${DOCKER_REGISTRY}/${DOCKER_REPOSITORY}:${TAG}
+    labels:
+      # Traefik labels
+      traefik.enable: "true"
+      traefik.docker.network: "traefik-network"
+      traefik.http.routers.mercally-http.entrypoints: "web"
+      traefik.http.routers.mercally-http.rule: "Host(`mercally.com`) || Host(`www.mercally.com`)"
+      traefik.http.routers.mercally-http.tls: false
+      traefik.http.routers.mercally-http.middlewares: "mercally-redirect-web-secure"
+      traefik.http.routers.mercally-http.service: "mercally-app"
+      traefik.http.middlewares.mercally-redirect-web-secure.redirectscheme.scheme: "https"
+      traefik.http.routers.mercally-https.entrypoints: "websecure"
+      traefik.http.routers.mercally-https.rule: "Host(`mercally.com`) || Host(`www.mercally.com`)"
+      traefik.http.routers.mercally-https.tls: true
+      traefik.http.routers.mercally-https.tls.certresolver: "staging"
+      traefik.http.routers.mercally-https.service: "mercally-app"
+      traefik.http.services.mercally-app.loadbalancer.server.port: "80"
+    environment:
+      - NODE_ENV=production
+      - DOCKER_REGISTRY=${DOCKER_REGISTRY}
+      - DOCKER_REPOSITORY=${DOCKER_REPOSITORY}
+      - TAG=${TAG}
+    restart: unless-stopped

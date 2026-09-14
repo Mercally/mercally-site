@@ -1,0 +1,50 @@
+<div class="animate-enter max-w-6xl mx-auto px-6 py-12 md:py-16">
+  @if (pattern(); as p) {
+    <a routerLink="/case-studies"
+      class="text-sm text-violet-700 dark:text-violet-400 hover:underline inline-flex items-center gap-1.5 mb-6">
+      &larr; {{ t().back }}
+    </a>
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 tracking-tight mb-2">
+      {{ p.name }}
+    </h1>
+    <p class="text-base text-gray-600 dark:text-gray-400 max-w-2xl mb-10">
+      {{ lang() === 'es' ? p.summaryEs : p.summaryEn }}
+    </p>
+
+    <app-page-nav-layout [sections]="navSections()" [ariaLabel]="t().onThisPage">
+      <div class="space-y-12">
+        @for (section of p.sections; track section.id) {
+          <section [id]="section.id" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="w-[3px] h-3.5 rounded-sm bg-violet-600 dark:bg-violet-400 block"></span>
+              <h2 class="text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400">
+                {{ lang() === 'es' ? section.titleEs : section.titleEn }}
+              </h2>
+            </div>
+            <div class="space-y-2">
+              @for (line of (lang() === 'es' ? section.contentEs : section.contentEn); track line) {
+                <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ line }}</p>
+              }
+            </div>
+          </section>
+        }
+
+        <section id="comments" class="scroll-mt-24 pt-4 border-t border-gray-200 dark:border-gray-800">
+          <h2 class="flex items-center gap-2 text-xl font-semibold text-gray-900 dark:text-gray-100 mb-5">
+            <svg class="w-5 h-5 shrink-0 text-violet-600 dark:text-violet-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 10.5h7.5m-7.5 3h4.5m-9-8.25h13.5A2.25 2.25 0 0121 7.5v7.5a2.25 2.25 0 01-2.25 2.25H8.25L4.5 21v-3.75H3.75A2.25 2.25 0 011.5 15V7.5A2.25 2.25 0 013.75 5.25z" />
+            </svg>
+            {{ t().comments }}
+          </h2>
+          <app-giscus-comments />
+        </section>
+      </div>
+    </app-page-nav-layout>
+  } @else {
+    <p class="text-sm text-gray-500 dark:text-gray-500 mb-4">{{ t().notFound }}</p>
+    <a routerLink="/case-studies"
+      class="text-sm text-violet-700 dark:text-violet-400 hover:underline">
+      &larr; {{ t().back }}
+    </a>
+  }
+</div>
