@@ -5,6 +5,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'cqrs',
     category: 'architecture',
+    level: 'intermediate',
     name: 'CQRS',
     summaryEs:
       'Separar el modelo de lectura del modelo de escritura en vez de usar un único modelo para ambos.',
@@ -58,6 +59,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'clean-architecture',
     category: 'architecture',
+    level: 'basic',
     name: 'Clean Architecture / Hexagonal',
     summaryEs:
       'Aislar las reglas de negocio de los detalles técnicos (framework, base de datos, UI) mediante capas y puertos.',
@@ -112,6 +114,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'event-driven',
     category: 'architecture',
+    level: 'intermediate',
     name: 'Event-Driven / Event Sourcing',
     summaryEs:
       'Comunicar servicios mediante eventos de dominio en vez de llamadas directas; opcionalmente, guardar el estado como secuencia de eventos.',
@@ -164,6 +167,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'multi-tenant-saas',
     category: 'architecture',
+    level: 'intermediate',
     name: 'Multi-tenant SaaS',
     summaryEs:
       'Servir a múltiples clientes (tenants) desde la misma aplicación, decidiendo cuánto comparten a nivel de infraestructura y datos.',
@@ -216,6 +220,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'microservices-vs-monolith',
     category: 'architecture',
+    level: 'basic',
     name: 'Microservices vs Monolith',
     summaryEs:
       'Decidir entre desplegar como un único servicio o dividir por capacidades de negocio, según el tamaño real del problema y del equipo.',
@@ -268,6 +273,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'result-pattern',
     category: 'code-design',
+    level: 'intermediate',
     name: 'Result Pattern',
     summaryEs: 'Representar éxito y errores esperados como un valor explícito, en vez de usar excepciones para el flujo normal.',
     summaryEn: 'Representing success and expected errors as an explicit value instead of using exceptions for normal control flow.',
@@ -292,6 +298,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'dependency-injection',
     category: 'code-design',
+    level: 'basic',
     name: 'Dependency Injection',
     summaryEs: 'Invertir la creación de dependencias para que el código dependa de contratos y sea más fácil de probar y cambiar.',
     summaryEn: 'Inverting dependency creation so code depends on contracts and is easier to test and change.',
@@ -316,6 +323,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'mediator',
     category: 'code-design',
+    level: 'intermediate',
     name: 'Mediator',
     summaryEs: 'Encapsular la comunicación entre componentes mediante comandos, consultas y handlers con responsabilidades pequeñas.',
     summaryEn: 'Encapsulating communication between components through commands, queries, and focused handlers.',
@@ -340,6 +348,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'singleton',
     category: 'code-design',
+    level: 'basic',
     name: 'Singleton',
     summaryEs: 'Garantizar una única instancia compartida de un recurso cuando su ciclo de vida global está realmente justificado.',
     summaryEn: 'Guaranteeing one shared instance when a globally scoped lifecycle is genuinely justified.',
@@ -364,6 +373,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'concurrency-parallelism-csharp',
     category: 'code-design',
+    level: 'intermediate',
     name: 'Concurrency vs Parallelism in C#',
     summaryEs: 'Distinguir concurrencia, paralelismo y concurrencia paralela para elegir correctamente entre async/await, tareas y procesamiento paralelo.',
     summaryEn: 'Distinguishing concurrency, parallelism, and concurrent parallelism to choose correctly between async/await, tasks, and parallel processing.',
@@ -388,6 +398,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'spec-driven-development',
     category: 'ai',
+    level: 'intermediate',
     name: 'Spec-Driven Development',
     summaryEs: 'Convertir una especificación validada en el contrato que guía diseño, implementación y pruebas, con IA como acelerador controlado.',
     summaryEn: 'Turning a validated specification into the contract guiding design, implementation, and tests, with AI as a controlled accelerator.',
@@ -412,6 +423,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'retrieval-augmented-generation',
     category: 'ai',
+    level: 'intermediate',
     name: 'Retrieval-Augmented Generation (RAG)',
     summaryEs: 'Dar a un modelo contexto recuperado desde fuentes propias para responder con información relevante y trazable.',
     summaryEn: 'Giving a model context retrieved from owned sources so it can answer with relevant, traceable information.',
@@ -436,6 +448,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'agent-assisted-development',
     category: 'ai',
+    level: 'advanced',
     name: 'Agent-Assisted Development',
     summaryEs: 'Coordinar agentes especializados con responsabilidades acotadas, artefactos verificables y revisión humana en los puntos de riesgo.',
     summaryEn: 'Coordinating specialized agents with bounded responsibilities, verifiable artifacts, and human review at risk points.',
@@ -460,7 +473,9 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'sast-sonarqube',
     category: 'engineering-excellence',
-    name: 'SAST con SonarQube',
+    level: 'intermediate',
+    name: 'SAST with SonarQube',
+    nameEs: 'SAST con SonarQube',
     summaryEs: 'Analizar código y dependencias para detectar vulnerabilidades, bugs y deuda técnica antes de integrar cambios.',
     summaryEn: 'Analyze code and dependencies to detect vulnerabilities, bugs, and technical debt before integrating changes.',
     sections: [
@@ -484,7 +499,9 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'dast-owasp-zap',
     category: 'engineering-excellence',
-    name: 'DAST con OWASP ZAP',
+    level: 'intermediate',
+    name: 'DAST with OWASP ZAP',
+    nameEs: 'DAST con OWASP ZAP',
     summaryEs: 'Probar la aplicación desplegada desde fuera para encontrar riesgos que solo aparecen durante la ejecución.',
     summaryEn: 'Test the deployed application from the outside to find risks that only appear at runtime.',
     sections: [
@@ -508,7 +525,9 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'secure-azure-devops-pipeline',
     category: 'engineering-excellence',
-    name: 'CI/CD seguro en Azure DevOps',
+    level: 'advanced',
+    name: 'Secure CI/CD on Azure DevOps',
+    nameEs: 'CI/CD seguro en Azure DevOps',
     summaryEs: 'Promover cambios desde Feature hacia Dev, Staging y Producción con gates de calidad, seguridad y artefactos inmutables.',
     summaryEn: 'Promote changes from Feature through Dev, Staging, and Production with quality gates, security checks, and immutable artifacts.',
     sections: [
@@ -532,6 +551,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'domain-driven-design',
     category: 'architecture',
+    level: 'intermediate',
     name: 'Domain-Driven Design (DDD)',
     summaryEs: 'Modelar el software alrededor del dominio, sus límites, lenguaje y reglas, en lugar de organizarlo solo por tecnología.',
     summaryEn: 'Modeling software around the domain, its boundaries, language, and rules instead of organizing it only by technology.',
@@ -556,6 +576,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'n-layer-architecture',
     category: 'architecture',
+    level: 'basic',
     name: 'N-Layer Architecture',
     summaryEs: 'Separar presentación, aplicación, dominio e infraestructura mediante dependencias controladas y responsabilidades claras.',
     summaryEn: 'Separating presentation, application, domain, and infrastructure through controlled dependencies and clear responsibilities.',
@@ -580,6 +601,7 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'modular-monolith',
     category: 'architecture',
+    level: 'basic',
     name: 'Modular Monolith',
     summaryEs: 'Mantener un único despliegue con módulos de negocio aislados, contratos explícitos y autonomía interna.',
     summaryEn: 'Keep one deployment while isolating business modules behind explicit contracts and internal autonomy.',
@@ -604,7 +626,9 @@ const PATTERNS: ArchitecturePattern[] = [
   {
     slug: 'messaging-queue-bus-pubsub-log',
     category: 'architecture',
-    name: 'Messaging: Queue, Bus, Pub/Sub y Event Log',
+    level: 'intermediate',
+    name: 'Messaging: Queue, Bus, Pub/Sub, and Event Log',
+    nameEs: 'Mensajería: Queue, Bus, Pub/Sub y Event Log',
     summaryEs: 'Elegir el mecanismo de mensajería según la entrega, el número de consumidores, el orden y la necesidad de replay.',
     summaryEn: 'Choose a messaging mechanism based on delivery, consumer count, ordering, and the need for replay.',
     sections: [
@@ -622,6 +646,158 @@ const PATTERNS: ArchitecturePattern[] = [
         id: 'tradeoffs', titleEs: 'Compensaciones', titleEn: 'Trade-offs',
         contentEs: ['La mensajería introduce consistencia eventual, duplicados, mensajes fuera de orden y fallos parciales; el consumidor debe ser idempotente.', 'No todo evento necesita Kafka: la durabilidad, escala, replay y aislamiento requeridos deben justificar la complejidad operativa del broker.'],
         contentEn: ['Messaging introduces eventual consistency, duplicates, out-of-order messages, and partial failures; consumers must be idempotent.', 'Not every event needs Kafka: required durability, scale, replay, and isolation must justify broker operational complexity.'],
+      },
+    ],
+  },
+  {
+    slug: 'saga-pattern',
+    category: 'architecture',
+    level: 'advanced',
+    name: 'Saga Pattern',
+    summaryEs: 'Coordinar una transacción de negocio distribuida mediante pasos locales y acciones compensatorias.',
+    summaryEn: 'Coordinate a distributed business transaction through local steps and compensating actions.',
+    sections: [
+      {
+        id: 'what', titleEs: 'Qué resuelve', titleEn: 'What it solves',
+        contentEs: ['Reemplaza una transacción global por una secuencia de transacciones locales coordinadas por orquestación o coreografía.', 'Cada paso publica un resultado y define cómo compensar el efecto si un paso posterior falla.'],
+        contentEn: ['Replaces a global transaction with a sequence of local transactions coordinated by orchestration or choreography.', 'Each step publishes a result and defines how to compensate its effect if a later step fails.'],
+      },
+      {
+        id: 'when', titleEs: 'Cuándo tiene sentido', titleEn: 'When it makes sense',
+        contentEs: ['Cuando varios servicios poseen datos separados y el negocio necesita una garantía de proceso completo.', 'La compensación debe ser una acción de negocio válida, no asumir que el rollback técnico siempre es posible.'],
+        contentEn: ['When multiple services own separate data and the business needs an end-to-end process guarantee.', 'Compensation must be a valid business action, not an assumption that technical rollback is always possible.'],
+      },
+      {
+        id: 'tradeoffs', titleEs: 'Compensaciones', titleEn: 'Trade-offs',
+        contentEs: ['Introduce consistencia eventual, estados intermedios y operaciones que deben ser idempotentes.', 'La observabilidad debe mostrar el correlation ID, estado de cada paso, reintentos y compensaciones ejecutadas.'],
+        contentEn: ['Introduces eventual consistency, intermediate states, and operations that must be idempotent.', 'Observability must show the correlation ID, each step state, retries, and executed compensations.'],
+      },
+    ],
+  },
+  {
+    slug: 'transactional-outbox',
+    category: 'architecture',
+    level: 'advanced',
+    name: 'Transactional Outbox',
+    summaryEs: 'Guardar el cambio de negocio y el evento pendiente en la misma transacción para evitar eventos perdidos.',
+    summaryEn: 'Store the business change and pending event in the same transaction to prevent lost events.',
+    sections: [
+      {
+        id: 'what', titleEs: 'Qué resuelve', titleEn: 'What it solves',
+        contentEs: ['La aplicación escribe el estado y un registro outbox en una sola transacción local; un worker publica después el evento.', 'Evita el fallo clásico donde la base confirma el cambio pero el proceso muere antes de publicar el mensaje.'],
+        contentEn: ['The application writes state and an outbox record in one local transaction; a worker publishes the event afterward.', 'Avoids the classic failure where the database commits but the process dies before publishing the message.'],
+      },
+      {
+        id: 'when', titleEs: 'Cuándo tiene sentido', titleEn: 'When it makes sense',
+        contentEs: ['Cuando una operación de negocio debe notificar a otros módulos o servicios sin depender de una transacción distribuida.', 'Combina bien con consumidores idempotentes, reintentos y dead-letter queues.'],
+        contentEn: ['When a business operation must notify other modules or services without relying on a distributed transaction.', 'Pairs well with idempotent consumers, retries, and dead-letter queues.'],
+      },
+      {
+        id: 'tradeoffs', titleEs: 'Compensaciones', titleEn: 'Trade-offs',
+        contentEs: ['Requiere limpiar registros publicados, controlar duplicados y monitorear el retraso entre commit y publicación.', 'No garantiza entrega exactly-once por sí solo; el contrato real suele ser at-least-once más idempotencia.'],
+        contentEn: ['Requires cleaning published records, handling duplicates, and monitoring commit-to-publication lag.', 'It does not guarantee exactly-once delivery by itself; the practical contract is usually at-least-once plus idempotency.'],
+      },
+    ],
+  },
+  {
+    slug: 'distributed-resilience',
+    category: 'architecture',
+    level: 'advanced',
+    name: 'Distributed Systems Resilience',
+    nameEs: 'Resiliencia en sistemas distribuidos',
+    summaryEs: 'Diseñar para timeouts, reintentos, circuit breakers, backpressure y fallos parciales sin amplificar incidentes.',
+    summaryEn: 'Design for timeouts, retries, circuit breakers, backpressure, and partial failures without amplifying incidents.',
+    sections: [
+      {
+        id: 'what', titleEs: 'Qué resuelve', titleEn: 'What it solves',
+        contentEs: ['Hace explícito que una dependencia remota puede ser lenta, estar caída o responder parcialmente.', 'Timeouts, límites de concurrencia, bulkheads y circuit breakers protegen recursos y evitan cascadas de fallos.'],
+        contentEn: ['Makes explicit that a remote dependency can be slow, unavailable, or partially responsive.', 'Timeouts, concurrency limits, bulkheads, and circuit breakers protect resources and prevent cascading failures.'],
+      },
+      {
+        id: 'when', titleEs: 'Cuándo tiene sentido', titleEn: 'When it makes sense',
+        contentEs: ['En cualquier sistema con red, especialmente integraciones críticas, workers y arquitecturas de microservicios.', 'Los reintentos solo aplican a errores transitorios y deben usar backoff con jitter y un límite claro.'],
+        contentEn: ['In any system with a network, especially critical integrations, workers, and microservice architectures.', 'Retries apply only to transient errors and need backoff with jitter and a clear limit.'],
+      },
+      {
+        id: 'tradeoffs', titleEs: 'Compensaciones', titleEn: 'Trade-offs',
+        contentEs: ['Reintentar sin idempotencia puede duplicar efectos; timeouts incorrectos pueden liberar trabajo que todavía sigue ejecutándose.', 'La resiliencia se valida con métricas y pruebas de fallos, no solo agregando una librería de políticas.'],
+        contentEn: ['Retrying without idempotency can duplicate effects; incorrect timeouts can release work that is still running.', 'Resilience is validated with metrics and failure testing, not just by adding a policy library.'],
+      },
+    ],
+  },
+  {
+    slug: 'functional-core-imperative-shell',
+    category: 'code-design',
+    level: 'advanced',
+    name: 'Functional Core, Imperative Shell',
+    summaryEs: 'Concentrar reglas puras y deterministas en el núcleo, dejando I/O y efectos secundarios en los bordes.',
+    summaryEn: 'Keep pure, deterministic rules in the core while isolating I/O and side effects at the edges.',
+    sections: [
+      {
+        id: 'what', titleEs: 'Qué resuelve', titleEn: 'What it solves',
+        contentEs: ['El núcleo recibe datos y devuelve decisiones sin depender de reloj, red, base de datos o estado global.', 'El shell traduce entradas, ejecuta efectos y persiste resultados; esto permite tests rápidos y deterministas.'],
+        contentEn: ['The core receives data and returns decisions without depending on clocks, networks, databases, or global state.', 'The shell translates inputs, performs effects, and persists results, enabling fast deterministic tests.'],
+      },
+      {
+        id: 'when', titleEs: 'Cuándo tiene sentido', titleEn: 'When it makes sense',
+        contentEs: ['En dominios con reglas complejas, cálculos y decisiones que pueden expresarse como transformaciones de datos.', 'Complementa DDD y Result Pattern sin exigir adoptar un lenguaje funcional completo.'],
+        contentEn: ['For domains with complex rules, calculations, and decisions expressible as data transformations.', 'It complements DDD and the Result Pattern without requiring a fully functional language.'],
+      },
+      {
+        id: 'tradeoffs', titleEs: 'Compensaciones', titleEn: 'Trade-offs',
+        contentEs: ['Requiere diseñar explícitamente modelos de entrada y salida y evitar filtrar objetos de infraestructura hacia el núcleo.', 'No todos los efectos pueden eliminarse; el objetivo es hacer su frontera visible y comprobable.'],
+        contentEn: ['Requires explicit input and output models and preventing infrastructure objects from leaking into the core.', 'Not every effect can be removed; the goal is to make its boundary visible and testable.'],
+      },
+    ],
+  },
+  {
+    slug: 'ai-evaluation-and-guardrails',
+    category: 'ai',
+    level: 'advanced',
+    name: 'AI Evaluation and Guardrails',
+    nameEs: 'Evaluación y Guardrails para IA',
+    summaryEs: 'Medir calidad, seguridad, costo y latencia de sistemas de IA con datasets de evaluación y límites operativos.',
+    summaryEn: 'Measure AI system quality, safety, cost, and latency with evaluation datasets and operational boundaries.',
+    sections: [
+      {
+        id: 'what', titleEs: 'Qué resuelve', titleEn: 'What it solves',
+        contentEs: ['Un conjunto versionado de casos evalúa groundedness, relevancia, exactitud, rechazo seguro y uso correcto de herramientas.', 'Guardrails validan entrada, salida, permisos y acciones antes de que el modelo afecte datos o sistemas reales.'],
+        contentEn: ['A versioned dataset evaluates groundedness, relevance, correctness, safe refusal, and proper tool use.', 'Guardrails validate inputs, outputs, permissions, and actions before the model affects real data or systems.'],
+      },
+      {
+        id: 'when', titleEs: 'Cuándo tiene sentido', titleEn: 'When it makes sense',
+        contentEs: ['Antes de cambiar modelo, prompt, retriever o herramientas en producción.', 'Es especialmente importante cuando existen datos sensibles, acciones autónomas o requisitos regulatorios.'],
+        contentEn: ['Before changing a model, prompt, retriever, or tools in production.', 'It is especially important with sensitive data, autonomous actions, or regulatory requirements.'],
+      },
+      {
+        id: 'tradeoffs', titleEs: 'Compensaciones', titleEn: 'Trade-offs',
+        contentEs: ['Las métricas automáticas no reemplazan revisión humana y pueden optimizar una señal mientras empeoran la experiencia real.', 'Los guardrails agregan latencia y pueden bloquear casos válidos; sus decisiones deben ser observables y revisables.'],
+        contentEn: ['Automated metrics do not replace human review and can optimize one signal while harming real user experience.', 'Guardrails add latency and may block valid cases; their decisions must be observable and reviewable.'],
+      },
+    ],
+  },
+  {
+    slug: 'software-supply-chain-security',
+    category: 'engineering-excellence',
+    level: 'advanced',
+    name: 'Software Supply Chain Security',
+    summaryEs: 'Proteger dependencias, build y artefactos con SBOM, provenance, firma y políticas verificables.',
+    summaryEn: 'Protect dependencies, builds, and artifacts with SBOMs, provenance, signing, and enforceable policies.',
+    sections: [
+      {
+        id: 'what', titleEs: 'Qué cubre', titleEn: 'What it covers',
+        contentEs: ['SCA y SBOM muestran qué componentes entran al producto; provenance permite saber cómo y desde qué commit se construyó.', 'Firmar imágenes y verificar firmas antes del deploy reduce el riesgo de sustituir artefactos después del build.'],
+        contentEn: ['SCA and SBOM show which components enter the product; provenance shows how and from which commit it was built.', 'Signing images and verifying signatures before deployment reduces post-build artifact substitution risk.'],
+      },
+      {
+        id: 'when', titleEs: 'Dónde entra', titleEn: 'Where it fits',
+        contentEs: ['En CI/CD junto a secret scanning, dependency scanning, permisos mínimos y repositorios de artefactos protegidos.', 'Las políticas deben bloquear únicamente riesgos definidos y permitir excepciones temporales con owner y fecha.'],
+        contentEn: ['In CI/CD alongside secret scanning, dependency scanning, least privilege, and protected artifact repositories.', 'Policies should block defined risks and allow temporary exceptions with an owner and expiry date.'],
+      },
+      {
+        id: 'tradeoffs', titleEs: 'Compensaciones', titleEn: 'Trade-offs',
+        contentEs: ['La trazabilidad aumenta el trabajo de build y release, pero reduce el tiempo necesario para investigar vulnerabilidades.', 'Un SBOM desactualizado crea una falsa sensación de cobertura; debe generarse desde el artefacto exacto que se despliega.'],
+        contentEn: ['Traceability adds build and release work but reduces the time needed to investigate vulnerabilities.', 'A stale SBOM creates false confidence; it must be generated from the exact artifact being deployed.'],
       },
     ],
   },

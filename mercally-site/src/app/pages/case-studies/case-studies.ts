@@ -4,7 +4,7 @@ import { DatePipe } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 import { CaseStudyService } from '../../services/case-study.service';
 import { PatternService } from '../../services/pattern.service';
-import { PatternCategory } from '../../models/architecture-pattern';
+import { PatternCategory, PatternLevel } from '../../models/architecture-pattern';
 import { PageNavLayoutComponent } from '../../components/page-nav-layout/page-nav-layout';
 import { NavSection } from '../../components/section-nav/section-nav';
 
@@ -18,6 +18,9 @@ const TRANS_T = {
     codeDesignKicker: 'Patrones de diseño de código',
     aiKicker: 'Patrones de IA',
     engineeringKicker: 'Calidad, seguridad y DevOps',
+    basic: 'Básico',
+    intermediate: 'Intermedio',
+    advanced: 'Avanzado',
     readCase: 'Leer el caso',
     onThisPage: 'En esta página',
   },
@@ -30,6 +33,9 @@ const TRANS_T = {
     codeDesignKicker: 'Code design patterns',
     aiKicker: 'AI patterns',
     engineeringKicker: 'Quality, security, and DevOps',
+    basic: 'Basic',
+    intermediate: 'Intermediate',
+    advanced: 'Advanced',
     readCase: 'Read the case study',
     onThisPage: 'On this page',
   },
@@ -53,16 +59,32 @@ export class CaseStudiesComponent {
 
   readonly patternGroups = computed(() => {
     const tt = this.t();
-    const groups: { id: string; category: PatternCategory; label: string }[] = [
-      { id: 'ai-section', category: 'ai', label: tt.aiKicker },
-      { id: 'engineering-section', category: 'engineering-excellence', label: tt.engineeringKicker },
-      { id: 'patterns-section', category: 'architecture', label: tt.patternsKicker },
-      { id: 'code-design-section', category: 'code-design', label: tt.codeDesignKicker },
+    const groups: { id: string; category: PatternCategory; label: string; levels: boolean }[] = [
+      { id: 'ai-section', category: 'ai', label: tt.aiKicker, levels: false },
+      { id: 'engineering-section', category: 'engineering-excellence', label: tt.engineeringKicker, levels: false },
+      { id: 'patterns-section', category: 'architecture', label: tt.patternsKicker, levels: true },
+      { id: 'code-design-section', category: 'code-design', label: tt.codeDesignKicker, levels: true },
     ];
 
     return groups.map((group) => ({
       ...group,
       patterns: this.patterns.filter((pattern) => pattern.category === group.category),
+      levelGroups: group.levels
+        ? (['basic', 'intermediate', 'advanced'] as PatternLevel[]).map((level) => ({
+            level,
+            label: tt[level],
+            patterns: this.patterns.filter(
+              (pattern) => pattern.category === group.category && pattern.level === level,
+            ),
+            preview: this.patterns
+              .filter((pattern) => pattern.category === group.category && pattern.level === level)
+              .slice(0, 2)
+              .map((pattern) =>
+                this.lang() === 'es' ? (pattern.nameEs ?? pattern.name) : pattern.name,
+              )
+              .join(', '),
+          }))
+        : [],
     }));
   });
 
