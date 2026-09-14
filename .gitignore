@@ -420,6 +420,7 @@ FodyWeavers.xsd
 .DS_Store
 .thumbnail
 .playwright-mcp/
+.codegraph/
 
 # Local History for Visual Studio Code
 .history/

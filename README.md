@@ -72,9 +72,28 @@ cd mercally-site
 npm run build
 ```
 
-The repository includes `Dockerfile`, Nginx, Docker Compose, and Azure Pipelines configuration
-for containerized and automated deployments. Generated build output and installed dependencies are
+The repository includes `Dockerfile`, Nginx, Docker Compose, and a GitHub Actions workflow for
+containerized and automated deployments. Generated build output and installed dependencies are
 ignored by Git.
+
+## Continuous deployment
+
+The workflow in `.github/workflows/deploy.yml` runs on pushes to `main` and can also be started
+manually from GitHub Actions. It builds the image, publishes immutable and `latest` tags to Google
+Artifact Registry, copies the Compose files to the VPS, and restarts only the application service.
+
+Configure these secrets in the `production` GitHub Environment:
+
+- `GCP_WORKLOAD_IDENTITY_PROVIDER`: Google Cloud Workload Identity Provider resource name.
+- `GCP_SERVICE_ACCOUNT`: Google service account used by GitHub Actions.
+- `VPS_HOST`: VPS hostname or IP address.
+- `VPS_USER`: SSH deployment user.
+- `VPS_SSH_PRIVATE_KEY`: private key for the deployment user.
+- `VPS_KNOWN_HOSTS`: pinned SSH host key entry generated with `ssh-keyscan -H <host>`.
+
+The Google service account needs permission to upload images to Artifact Registry. The VPS user
+needs permission to run Docker and Docker Compose. No service account files, SSH private keys,
+GitHub tokens, or application secrets are stored in the repository.
 
 ## Development notes
 

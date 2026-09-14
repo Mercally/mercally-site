@@ -1,0 +1,101 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  GCP_PROJECT_ID: caramel-primer-419204
+  GAR_LOCATION: northamerica-northeast1
+  GAR_REPOSITORY: mercally-site
+  IMAGE_NAME: mercally-site
+  VPS_PROJECT_DIR: /home/rdpuser/projects/mercally-site
+
+jobs:
+  build-and-deploy:
+    name: Build, publish, and deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker "${GAR_LOCATION}-docker.pkg.dev" --quiet
+
+      - name: Build and push image
+        env:
+          IMAGE_URI: ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.IMAGE_NAME }}
+        run: |
+          set -euo pipefail
+          docker build --tag "${IMAGE_URI}:${GITHUB_SHA}" --tag "${IMAGE_URI}:latest" ./mercally-site
+          docker push "${IMAGE_URI}:${GITHUB_SHA}"
+          docker push "${IMAGE_URI}:latest"
+
+      - name: Configure SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+
+      - name: Trust deployment host
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.ssh"
+          printf '%s\n' '${{ secrets.VPS_KNOWN_HOSTS }}' >> "$HOME/.ssh/known_hosts"
+
+      - name: Copy Compose files to VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          set -euo pipefail
+          ssh "${VPS_USER}@${VPS_HOST}" "mkdir -p '${VPS_PROJECT_DIR}'"
+          scp mercally-site/docker-compose.yml "${VPS_USER}@${VPS_HOST}:${VPS_PROJECT_DIR}/docker-compose.yml"
+          scp mercally-site/docker-compose.override.yml "${VPS_USER}@${VPS_HOST}:${VPS_PROJECT_DIR}/docker-compose.override.yml"
+
+      - name: Authenticate Docker on VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          set -euo pipefail
+          gcloud auth print-access-token | ssh "${VPS_USER}@${VPS_HOST}" \
+            "docker login --username oauth2accesstoken --password-stdin '${GAR_LOCATION}-docker.pkg.dev'"
+
+      - name: Deploy on VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          IMAGE_REGISTRY: ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}
+        run: |
+          set -euo pipefail
+          ssh "${VPS_USER}@${VPS_HOST}" "
+            set -eu
+            cd '${VPS_PROJECT_DIR}'
+            printf '%s\\n' \\
+              'DOCKER_REGISTRY=${IMAGE_REGISTRY}' \\
+              'DOCKER_REPOSITORY=${GAR_REPOSITORY}/${IMAGE_NAME}' \\
+              'TAG=${GITHUB_SHA}' > .env
+            docker compose -f docker-compose.yml -f docker-compose.override.yml pull app
+            docker compose -f docker-compose.yml -f docker-compose.override.yml up -d --remove-orphans app
+            docker logout '${GAR_LOCATION}-docker.pkg.dev' || true
+          "
+
+      - name: Verify production site
+        run: curl --fail --silent --show-error --retry 10 --retry-delay 5 --max-time 20 https://mercally.com/
