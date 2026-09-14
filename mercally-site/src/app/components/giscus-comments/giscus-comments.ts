@@ -2,14 +2,10 @@ import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, inject, eff
 import { LanguageService } from '../../services/language.service';
 import { ThemeService } from '../../services/theme.service';
 
-// TODO: fill in once the GitHub repo backing comments exists and the giscus
-// app (https://github.com/apps/giscus) is installed on it with Discussions
-// enabled. Get these exact values from https://giscus.app after pointing it
-// at that repo -- do not guess repo-id/category-id, they are opaque IDs.
-const GISCUS_REPO = 'TODO-owner/TODO-repo';
-const GISCUS_REPO_ID = 'TODO';
+const GISCUS_REPO = 'Mercally/mercally-site';
+const GISCUS_REPO_ID = 'R_kgDOUasXtg';
 const GISCUS_CATEGORY = 'Comments';
-const GISCUS_CATEGORY_ID = 'TODO';
+const GISCUS_CATEGORY_ID = 'DIC_kwDOUasXts4DFl8I';
 
 @Component({
   selector: 'app-giscus-comments',
@@ -49,9 +45,10 @@ export class GiscusCommentsComponent implements AfterViewInit, OnDestroy {
     script.setAttribute('data-strict', '0');
     script.setAttribute('data-reactions-enabled', '1');
     script.setAttribute('data-emit-metadata', '0');
-    script.setAttribute('data-input-position', 'top');
+    script.setAttribute('data-input-position', 'bottom');
     script.setAttribute('data-theme', this.themeSvc.theme());
     script.setAttribute('data-lang', this.langSvc.lang());
+    script.setAttribute('data-loading', 'lazy');
 
     this.scriptEl = script;
     this.host.nativeElement.appendChild(script);
