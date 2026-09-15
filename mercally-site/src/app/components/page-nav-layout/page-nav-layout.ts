@@ -6,7 +6,7 @@ import { SectionNavComponent, NavSection } from '../section-nav/section-nav';
   standalone: true,
   imports: [SectionNavComponent],
   template: `
-    <div class="grid grid-cols-1 lg:grid-cols-[160px_minmax(0,1fr)] gap-x-10 gap-y-10 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-[200px_minmax(0,1fr)] gap-x-10 gap-y-10 items-start">
       <aside class="hidden lg:block lg:sticky lg:top-20 self-start" [attr.aria-label]="ariaLabel()">
         <app-section-nav [sections]="sections()" [ariaLabel]="ariaLabel()" />
       </aside>

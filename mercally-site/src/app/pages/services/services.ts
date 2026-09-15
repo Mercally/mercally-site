@@ -18,6 +18,24 @@ const T = {
     investmentNote:
       'El precio final depende del alcance del proyecto, y siempre queda por escrito antes de empezar.',
     investmentCta: 'Pedir una cotización',
+    contactKicker: '¿Tienes una decisión sobre la mesa?',
+    contactTitle: 'Hablemos del problema, no solo de la tecnología.',
+    contactQuestions: ['¿La arquitectura está frenando al equipo?', '¿Quieres adoptar IA sin perder control?', '¿Necesitas seguridad antes del próximo release?'],
+    contactMode: 'Trabajo por proyecto, por alcance o por hora.',
+    contactCta: 'Solicitar diagnóstico',
+    profileAlt: 'Josué Mercadillo, arquitecto de software',
+    profileRole: 'Arquitecto de software · Technical Lead',
+    profileProof: '10+ años convirtiendo decisiones técnicas en software que llega a producción.',
+    commandKicker: 'Perfil técnico',
+    commandTitle: 'De la decisión a producción',
+    commandYears: '10+ años',
+    commandYearsLabel: 'en tecnología',
+    commandStack: '.NET · Cloud · Security · AI',
+    commandStackLabel: 'áreas de trabajo',
+    commandFocus: 'Arquitectura · Delivery · Riesgo',
+    commandFocusLabel: 'lo que desbloqueo',
+    commandReach: 'Remoto · US & LATAM',
+    commandReachLabel: 'alcance de trabajo',
     onThisPage: 'En esta página',
   },
   en: {
@@ -33,6 +51,24 @@ const T = {
     investmentNote:
       'Final price depends on project scope, and always goes in writing before starting.',
     investmentCta: 'Request a quote',
+    contactKicker: 'Have a decision on the table?',
+    contactTitle: 'Let’s talk about the problem, not just the technology.',
+    contactQuestions: ['Is architecture slowing your team down?', 'Do you want to adopt AI without losing control?', 'Do you need security before the next release?'],
+    contactMode: 'Available by project, scope, or hourly engagement.',
+    contactCta: 'Request a diagnosis',
+    profileAlt: 'Josué Mercadillo, software architect',
+    profileRole: 'Software architect · Technical Lead',
+    profileProof: '10+ years turning technical decisions into software that reaches production.',
+    commandKicker: 'Technical profile',
+    commandTitle: 'From decision to production',
+    commandYears: '10+ years',
+    commandYearsLabel: 'in technology',
+    commandStack: '.NET · Cloud · Security · AI',
+    commandStackLabel: 'focus areas',
+    commandFocus: 'Architecture · Delivery · Risk',
+    commandFocusLabel: 'what I unblock',
+    commandReach: 'Remote · US & LATAM',
+    commandReachLabel: 'working reach',
     onThisPage: 'On this page',
   },
 } as const;
@@ -105,7 +141,10 @@ export class ServicesComponent {
   readonly navSections = computed<NavSection[]>(() => {
     const tt = this.t();
     return [
-      { id: 'offerings', label: tt.title },
+      ...this.offerings.map((offering) => ({
+        id: `offering-${offering.slug}`,
+        label: this.lang() === 'es' ? offering.titleEs : offering.titleEn,
+      })),
       { id: 'process', label: tt.processKicker },
       { id: 'investment', label: tt.investmentKicker },
     ];
