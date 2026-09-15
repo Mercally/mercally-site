@@ -5,6 +5,7 @@
   <title>Josué Mercadillo | Mercally - .NET Full Stack, DteMasters</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <meta name="description" content="Sitio oficial de Josué Mercadillo, desarrollador .NET full stack de El Salvador, fundador de Mercally y creador de DteMasters.com para automatización de documentos tributarios electrónicos (DTE).">
   <meta name="keywords" content="Josué Mercadillo, Josue Mercadillo, Mercally, mercally.com, DteMasters, Dte Masters, DTE El Salvador, documentos tributarios electrónicos, .NET full stack El Salvador">
   <meta name="author" content="Josué Mercadillo">
@@ -21,6 +22,15 @@
   <meta name="twitter:title" content="Josué Mercadillo | Mercally">
   <meta name="twitter:description" content="Desarrollador .NET full stack de El Salvador, fundador de Mercally y creador de DteMasters.com.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    try {
+      const storedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch { }
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
