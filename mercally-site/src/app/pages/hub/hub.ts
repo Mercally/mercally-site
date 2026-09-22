@@ -7,6 +7,7 @@ import { CareerStintService } from '../../services/career-stint.service';
 import { TechStackService } from '../../services/tech-stack.service';
 import { TradeoffService } from '../../services/tradeoff.service';
 import { TestimonialService } from '../../services/testimonial.service';
+import { TestimonialCardComponent } from '../../components/testimonial-card/testimonial-card';
 import { PageNavLayoutComponent } from '../../components/page-nav-layout/page-nav-layout';
 import { NavSection } from '../../components/section-nav/section-nav';
 
@@ -17,7 +18,7 @@ const T = {
     intro:
       'Más de nueve años diseñando, construyendo y operando software crítico de negocio en entornos internacionales y multicloud. Especializado en .NET, plataformas SaaS multi-tenant y seguridad de aplicaciones.',
     ctaTalk: 'Agendar una conversación',
-    ctaCases: 'Ver casos de estudio',
+    ctaCases: 'Ver proyectos',
     metaLocation: 'San Salvador, El Salvador',
     metaRemote: 'Remoto con equipos de EE.UU. y LATAM',
     metaLang: 'Español nativo, inglés B2',
@@ -36,6 +37,10 @@ const T = {
     testimonialsKicker: 'Lo que dicen',
     testimonialsNote: 'Espacio reservado. Reemplaza estos tres bloques cuando tengas los testimonios.',
     testimonialAuthor: 'Nombre · Cargo, Empresa',
+    referencesCta: 'Solicitar referencias',
+    referencesSubject: 'Solicitud de referencias profesionales',
+    referencesBody:
+      'Hola Josué,\n\nMe gustaría solicitar referencias profesionales tuyas para evaluar una posible colaboración.\n\n¿Podrías compartirme el contacto de alguien con quien hayas trabajado?\n\nGracias.',
     closingTitle: '¿Tienes una decisión de arquitectura sobre la mesa?',
     closingBody: 'Cuéntame el contexto y te digo qué haría yo, y qué no.',
     closingEmail: 'Escríbeme',
@@ -48,7 +53,7 @@ const T = {
     intro:
       'Over nine years designing, building, and operating critical business software across international, multicloud environments. Focused on .NET, multi-tenant SaaS platforms, and application security.',
     ctaTalk: 'Book a conversation',
-    ctaCases: 'View case studies',
+    ctaCases: 'View projects',
     metaLocation: 'San Salvador, El Salvador',
     metaRemote: 'Remote with US and LATAM teams',
     metaLang: 'Native Spanish, B2 English',
@@ -67,6 +72,10 @@ const T = {
     testimonialsKicker: 'What people say',
     testimonialsNote: 'Placeholder space. Swap in these three blocks once you have real testimonials.',
     testimonialAuthor: 'Name · Title, Company',
+    referencesCta: 'Request references',
+    referencesSubject: 'Request for professional references',
+    referencesBody:
+      "Hi Josué,\n\nI'd like to request professional references to evaluate a potential collaboration.\n\nCould you share contact info for someone you've worked with?\n\nThanks.",
     closingTitle: 'Have an architecture decision on the table?',
     closingBody: 'Tell me the context and I\'ll tell you what I\'d do, and what I wouldn\'t.',
     closingEmail: 'Email me',
@@ -170,7 +179,7 @@ const FLOWS = [
 @Component({
   selector: 'app-hub',
   standalone: true,
-  imports: [RouterLink, PageNavLayoutComponent],
+  imports: [RouterLink, PageNavLayoutComponent, TestimonialCardComponent],
   templateUrl: './hub.html',
   styleUrl: './hub.css',
 })
@@ -193,6 +202,11 @@ export class HubComponent {
   readonly stack = this.stackSvc.all;
   readonly tradeoffs = this.tradeoffSvc.all;
   readonly testimonials = this.testimonialSvc.all;
+  readonly featuredTestimonial = computed(() => this.testimonials.find((item) => !item.pending));
+  readonly referencesMailtoHref = computed(() => {
+    const tt = this.t();
+    return `mailto:josuemercally@outlook.com?subject=${encodeURIComponent(tt.referencesSubject)}&body=${encodeURIComponent(tt.referencesBody)}`;
+  });
 
   readonly navSections = computed<NavSection[]>(() => {
     const tt = this.t();

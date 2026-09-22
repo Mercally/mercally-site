@@ -13,8 +13,8 @@ import { SectionNavComponent, NavSection } from '../../components/section-nav/se
 
 const TRANS_T = {
   es: {
-    notFound: 'Estudio de caso no encontrado.',
-    back: 'Volver a casos de estudio',
+    notFound: 'Proyecto no encontrado.',
+    back: 'Volver a proyectos',
     context: 'Contexto',
     problem: 'Problema',
     decision: 'Decisión de arquitectura',
@@ -30,8 +30,8 @@ const TRANS_T = {
     moreInfo: 'Más información',
   },
   en: {
-    notFound: 'Case study not found.',
-    back: 'Back to case studies',
+    notFound: 'Project not found.',
+    back: 'Back to projects',
     context: 'Context',
     problem: 'Problem',
     decision: 'Architecture decision',

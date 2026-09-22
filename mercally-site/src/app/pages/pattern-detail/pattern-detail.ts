@@ -11,13 +11,13 @@ import { GiscusCommentsComponent } from '../../components/giscus-comments/giscus
 const TRANS_T = {
   es: {
     notFound: 'Patrón no encontrado.',
-    back: 'Casos y patrones',
+    back: 'Proyectos y patrones',
     comments: 'Comentarios',
     onThisPage: 'En esta página',
   },
   en: {
     notFound: 'Pattern not found.',
-    back: 'Case studies & patterns',
+    back: 'Projects & patterns',
     comments: 'Comments',
     onThisPage: 'On this page',
   },

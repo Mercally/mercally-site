@@ -10,10 +10,10 @@ import { NavSection } from '../../components/section-nav/section-nav';
 
 const TRANS_T = {
   es: {
-    title: 'Casos de Estudio',
+    title: 'Proyectos',
     subtitle: 'Decisiones de arquitectura anonimizada de proyectos reales.',
-    empty: 'Aún no hay casos de estudio publicados. Vuelve pronto.',
-    casesKicker: 'Casos de estudio',
+    empty: 'Aún no hay proyectos publicados. Vuelve pronto.',
+    casesKicker: 'Proyectos',
     patternsKicker: 'Patrones de arquitectura',
     codeDesignKicker: 'Patrones de diseño de código',
     aiKicker: 'Patrones de IA',
@@ -21,14 +21,14 @@ const TRANS_T = {
     basic: 'Básico',
     intermediate: 'Intermedio',
     advanced: 'Avanzado',
-    readCase: 'Leer el caso',
+    readCase: 'Ver el proyecto',
     onThisPage: 'En esta página',
   },
   en: {
-    title: 'Case Studies',
+    title: 'Projects',
     subtitle: 'Anonymized architecture decisions from real projects.',
-    empty: 'No case studies published yet. Check back soon.',
-    casesKicker: 'Case studies',
+    empty: 'No projects published yet. Check back soon.',
+    casesKicker: 'Projects',
     patternsKicker: 'Architecture patterns',
     codeDesignKicker: 'Code design patterns',
     aiKicker: 'AI patterns',
@@ -36,7 +36,7 @@ const TRANS_T = {
     basic: 'Basic',
     intermediate: 'Intermediate',
     advanced: 'Advanced',
-    readCase: 'Read the case study',
+    readCase: 'View the project',
     onThisPage: 'On this page',
   },
 } as const;

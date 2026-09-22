@@ -15,7 +15,7 @@ export const routes: Routes = [
     data: {
       title: 'Mercally - Architecture Showcase',
       description:
-        'Real-world software architecture insights: case studies, patterns, and services',
+        'Real-world software architecture insights: projects, patterns, and services',
     },
   },
   {
@@ -31,7 +31,7 @@ export const routes: Routes = [
     path: 'case-studies',
     component: CaseStudiesComponent,
     data: {
-      title: 'Case Studies | Mercally',
+      title: 'Projects | Mercally',
       description:
         'Anonymized architecture decisions from real projects',
     },
@@ -40,7 +40,7 @@ export const routes: Routes = [
     path: 'case-studies/:slug',
     component: CaseDetailComponent,
     data: {
-      title: 'Case Study | Mercally',
+      title: 'Project | Mercally',
       description:
         'Architecture decision record with trade-offs and results',
     },

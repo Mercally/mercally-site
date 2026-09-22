@@ -3,10 +3,14 @@ import { Testimonial } from '../models/testimonial';
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    slug: 'pending-1',
-    quoteEs: 'Cita pendiente: el testimonio de un cliente o líder técnico con quien trabajaste.',
-    quoteEn: 'Quote pending: a testimonial from a client or technical lead you worked with.',
-    pending: true,
+    slug: 'giovanni-montano',
+    quoteEs:
+      'Trabajar con Josué ha sido una decisión muy acertada, es un profesional brillante que capta las necesidades del cliente y las transforma en realidades. Es fácil poder trabajar con alguien que parece entender lo que necesitas para convertir en realidad proyectos.',
+    quoteEn:
+      'Working with Josué has been a great decision — he is a brilliant professional who grasps the client\'s needs and turns them into reality. It\'s easy to work with someone who seems to understand what you need to make projects real.',
+    pending: false,
+    authorName: 'Giovanni Montano',
+    authorRole: 'Director, SV Consultores SA de CV',
   },
   {
     slug: 'pending-2',
