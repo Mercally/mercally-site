@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HubComponent } from './pages/hub/hub';
 import { PatternDetailComponent } from './pages/pattern-detail/pattern-detail';
-import { CaseStudiesComponent } from './pages/case-studies/case-studies';
+import { ProjectsComponent } from './pages/projects/projects';
 import { CaseDetailComponent } from './pages/case-detail/case-detail';
 import { ServicesComponent } from './pages/services/services';
 import { AboutComponent } from './pages/about/about';
@@ -28,8 +28,8 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'case-studies',
-    component: CaseStudiesComponent,
+    path: 'projects',
+    component: ProjectsComponent,
     data: {
       title: 'Projects | Mercally',
       description:
@@ -37,7 +37,7 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'case-studies/:slug',
+    path: 'projects/:slug',
     component: CaseDetailComponent,
     data: {
       title: 'Project | Mercally',

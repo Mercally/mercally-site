@@ -5,7 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import { LanguageService } from '../../services/language.service';
-import { CaseStudyService } from '../../services/case-study.service';
+import { CaseStudyService } from '../../services/projects.service';
 import { ThemeService } from '../../services/theme.service';
 import { PatternService } from '../../services/pattern.service';
 import { GiscusCommentsComponent } from '../../components/giscus-comments/giscus-comments';

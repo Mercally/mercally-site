@@ -1,6 +1,6 @@
 <div class="animate-enter max-w-6xl mx-auto px-6 py-12 md:py-16">
   @if (pattern(); as p) {
-    <a routerLink="/case-studies"
+    <a routerLink="/projects"
       class="text-sm text-violet-700 dark:text-violet-400 hover:underline inline-flex items-center gap-1.5 mb-6">
       &larr; {{ t().back }}
     </a>
@@ -42,7 +42,7 @@
     </app-page-nav-layout>
   } @else {
     <p class="text-sm text-gray-500 dark:text-gray-500 mb-4">{{ t().notFound }}</p>
-    <a routerLink="/case-studies"
+    <a routerLink="/projects"
       class="text-sm text-violet-700 dark:text-violet-400 hover:underline">
       &larr; {{ t().back }}
     </a>

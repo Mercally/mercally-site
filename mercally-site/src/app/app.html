@@ -17,9 +17,9 @@
         class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 px-3 py-2 rounded-md hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
         {{ nav().home }}
       </a>
-      <a routerLink="/case-studies" routerLinkActive="text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900"
+      <a routerLink="/projects" routerLinkActive="text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900"
         class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 px-3 py-2 rounded-md hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
-        {{ nav().casestudies }}
+        {{ nav().projects }}
       </a>
       <a routerLink="/services" routerLinkActive="text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900"
         class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 px-3 py-2 rounded-md hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors">
@@ -70,8 +70,8 @@
     <nav class="flex flex-col text-sm py-2" aria-label="Mobile navigation">
       <a routerLink="/" (click)="closeMenu()" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-violet-700 dark:text-violet-400"
         class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().home }}</a>
-      <a routerLink="/case-studies" (click)="closeMenu()" routerLinkActive="text-violet-700 dark:text-violet-400"
-        class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().casestudies }}</a>
+      <a routerLink="/projects" (click)="closeMenu()" routerLinkActive="text-violet-700 dark:text-violet-400"
+        class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().projects }}</a>
       <a routerLink="/services" (click)="closeMenu()" routerLinkActive="text-violet-700 dark:text-violet-400"
         class="px-6 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900">{{ nav().services }}</a>
       <a routerLink="/about" (click)="closeMenu()" routerLinkActive="text-violet-700 dark:text-violet-400"

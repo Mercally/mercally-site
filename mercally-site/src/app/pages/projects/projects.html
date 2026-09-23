@@ -9,8 +9,8 @@
 
   <app-page-nav-layout [sections]="navSections()" [ariaLabel]="t().onThisPage">
 
-  <!-- CASE STUDIES -->
-  <section id="case-studies-section" class="scroll-mt-24 mb-16">
+  <!-- PROJECTS -->
+  <section id="projects-section" class="scroll-mt-24 mb-16">
     <div class="flex items-center gap-3 mb-6">
       <span class="w-[3px] h-3.5 rounded-sm bg-violet-600 dark:bg-violet-400 block"></span>
       <h2 class="text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400">{{ t().casesKicker }}</h2>
@@ -19,7 +19,7 @@
     @if (caseStudies.length) {
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         @for (cs of caseStudies; track cs.slug) {
-          <a [routerLink]="['/case-studies', cs.slug]"
+          <a [routerLink]="['/projects', cs.slug]"
             class="flex flex-col rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:border-violet-400 dark:hover:border-violet-600 transition-colors">
             <div class="flex flex-wrap gap-2 mb-3.5">
               @for (tag of (lang() === 'es' ? cs.tagsEs : cs.tagsEn); track tag) {

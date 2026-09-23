@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CaseStudy } from '../models/case-study';
+import { Project } from '../models/project';
 
-const CASE_STUDIES: CaseStudy[] = [
+const CASE_STUDIES: Project[] = [
   {
     slug: 'email-reader',
     titleEs: 'Lector de Correo Multi-Proveedor',
@@ -88,9 +88,9 @@ const CASE_STUDIES: CaseStudy[] = [
 
 @Injectable({ providedIn: 'root' })
 export class CaseStudyService {
-  readonly all: CaseStudy[] = CASE_STUDIES;
+  readonly all: Project[] = CASE_STUDIES;
 
-  getBySlug(slug: string): CaseStudy | undefined {
+  getBySlug(slug: string): Project | undefined {
     return CASE_STUDIES.find((c) => c.slug === slug);
   }
 }

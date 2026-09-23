@@ -1,4 +1,4 @@
-export interface CaseStudy {
+export interface Project {
   slug: string;
   titleEs: string;
   titleEn: string;

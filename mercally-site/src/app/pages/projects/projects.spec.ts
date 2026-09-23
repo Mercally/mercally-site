@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CaseStudiesComponent } from './case-studies';
+import { ProjectsComponent } from './projects';
 import { LanguageService } from '../../services/language.service';
 
-describe('CaseStudiesComponent', () => {
-  let component: CaseStudiesComponent;
-  let fixture: ComponentFixture<CaseStudiesComponent>;
+describe('ProjectsComponent', () => {
+  let component: ProjectsComponent;
+  let fixture: ComponentFixture<ProjectsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CaseStudiesComponent],
+      imports: [ProjectsComponent],
       providers: [{ provide: LanguageService, useValue: { lang: { get: () => 'en' } } }]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CaseStudiesComponent);
+    fixture = TestBed.createComponent(ProjectsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

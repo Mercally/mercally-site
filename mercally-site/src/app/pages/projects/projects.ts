@@ -2,7 +2,7 @@ import { Component, inject, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
-import { CaseStudyService } from '../../services/case-study.service';
+import { CaseStudyService } from '../../services/projects.service';
 import { PatternService } from '../../services/pattern.service';
 import { PatternCategory, PatternLevel } from '../../models/architecture-pattern';
 import { PageNavLayoutComponent } from '../../components/page-nav-layout/page-nav-layout';
@@ -42,13 +42,13 @@ const TRANS_T = {
 } as const;
 
 @Component({
-  selector: 'app-case-studies',
+  selector: 'app-projects',
   standalone: true,
   imports: [RouterLink, DatePipe, PageNavLayoutComponent],
-  templateUrl: './case-studies.html',
-  styleUrl: './case-studies.css',
+  templateUrl: './projects.html',
+  styleUrl: './projects.css',
 })
-export class CaseStudiesComponent {
+export class ProjectsComponent {
   private readonly langSvc = inject(LanguageService);
   private readonly caseSvc = inject(CaseStudyService);
   private readonly patternSvc = inject(PatternService);
@@ -91,7 +91,7 @@ export class CaseStudiesComponent {
   readonly navSections = computed<NavSection[]>(() => {
     const tt = this.t();
     return [
-      { id: 'case-studies-section', label: tt.casesKicker },
+      { id: 'projects-section', label: tt.casesKicker },
       ...this.patternGroups().map((group) => ({ id: group.id, label: group.label })),
     ];
   });

@@ -8,11 +8,11 @@ import { ThemeService } from './services/theme.service';
 
 const NAV_T = {
   es: {
-    home: 'inicio', casestudies: 'proyectos', services: 'servicios', about: 'sobre mí', contact: 'contacto',
+    home: 'inicio', projects: 'proyectos', services: 'servicios', about: 'sobre mí', contact: 'contacto',
     talk: 'Hablemos', footerRole: 'Arquitectura de software · San Salvador, El Salvador',
   },
   en: {
-    home: 'home', casestudies: 'projects', services: 'services', about: 'about', contact: 'contact',
+    home: 'home', projects: 'projects', services: 'services', about: 'about', contact: 'contact',
     talk: "Let's talk", footerRole: 'Software architecture · San Salvador, El Salvador',
   },
 } as const;
