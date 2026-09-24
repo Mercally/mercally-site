@@ -36,7 +36,6 @@ const T = {
     stackKicker: 'Stack',
     testimonialsKicker: 'Lo que dicen',
     testimonialsNote: 'Espacio reservado. Reemplaza estos tres bloques cuando tengas los testimonios.',
-    testimonialAuthor: 'Nombre · Cargo, Empresa',
     referencesCta: 'Solicitar referencias',
     referencesSubject: 'Solicitud de referencias profesionales',
     referencesBody:
@@ -71,7 +70,6 @@ const T = {
     stackKicker: 'Stack',
     testimonialsKicker: 'What people say',
     testimonialsNote: 'Placeholder space. Swap in these three blocks once you have real testimonials.',
-    testimonialAuthor: 'Name · Title, Company',
     referencesCta: 'Request references',
     referencesSubject: 'Request for professional references',
     referencesBody:

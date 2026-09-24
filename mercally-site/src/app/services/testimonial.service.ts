@@ -13,16 +13,20 @@ const TESTIMONIALS: Testimonial[] = [
     authorRole: 'Director, SV Consultores SA de CV',
   },
   {
-    slug: 'pending-2',
-    quoteEs: 'Cita pendiente. Idealmente sobre un resultado concreto, no sobre lo agradable que fue trabajar contigo.',
-    quoteEn: 'Quote pending. Ideally about a concrete result, not about how pleasant you were to work with.',
-    pending: true,
+    slug: 'wordpress-landing',
+    quoteEs:
+      'Nos ayudó a implementar nuestra landing page en WordPress, cuidando cada detalle del despliegue y ahorrándonos costos que no esperábamos reducir. Cumplió justo lo que necesitábamos, sin gastos de más.',
+    quoteEn:
+      'He helped us implement our landing page on WordPress, taking care of every detail of the deployment and saving us costs we didn\'t expect to cut. He delivered exactly what we needed, without extra expenses.',
+    pending: false,
   },
   {
-    slug: 'pending-3',
-    quoteEs: 'Cita pendiente. Un tercero basta para empezar, tres se ven mejor.',
-    quoteEn: 'Quote pending. One is enough to start, three look better.',
-    pending: true,
+    slug: 'office-365-sharepoint',
+    quoteEs:
+      'Nos guio en la implementación de Office 365, en la selección del nombre de dominio y en el uso adecuado de SharePoint. El resultado se nota: la comunicación dentro de la organización mejoró y la información fluye donde debe estar.',
+    quoteEn:
+      'He guided us through the Office 365 rollout, choosing our domain name, and using SharePoint properly. The result shows: communication within the organization improved and information now flows where it should.',
+    pending: false,
   },
 ];
 

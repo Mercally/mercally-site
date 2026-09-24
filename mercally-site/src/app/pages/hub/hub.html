@@ -255,7 +255,7 @@
     <p class="text-xs text-gray-400 dark:text-gray-600 max-w-lg mb-7">{{ t().testimonialsNote }}</p>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       @for (item of testimonials; track item.slug) {
-        <app-testimonial-card [testimonial]="item" [lang]="lang()" [placeholderAuthor]="t().testimonialAuthor" />
+        <app-testimonial-card [testimonial]="item" [lang]="lang()" />
       }
     </div>
   </section>

@@ -40,14 +40,12 @@ const QUOTE_ICON_PATH_2 =
           <path [attr.d]="quoteIconPath2"></path>
         </svg>
         <blockquote class="text-[15px] leading-relaxed text-gray-700 dark:text-gray-300 mb-4">"{{ quote() }}"</blockquote>
-        <figcaption class="text-xs text-gray-500 dark:text-gray-500">
-          @if (testimonial().pending) {
-            {{ placeholderAuthor() }}
-          } @else {
+        @if (testimonial().authorName) {
+          <figcaption class="text-xs text-gray-500 dark:text-gray-500">
             <span class="font-medium text-gray-700 dark:text-gray-300">{{ testimonial().authorName }}</span>
             <span> · {{ testimonial().authorRole }}</span>
-          }
-        </figcaption>
+          </figcaption>
+        }
       </figure>
     }
   `,
@@ -56,7 +54,6 @@ export class TestimonialCardComponent {
   readonly testimonial = input.required<Testimonial>();
   readonly lang = input<'es' | 'en'>('es');
   readonly variant = input<'featured' | 'grid'>('grid');
-  readonly placeholderAuthor = input<string>('');
 
   readonly quoteIconPath = QUOTE_ICON_PATH;
   readonly quoteIconPath2 = QUOTE_ICON_PATH_2;
