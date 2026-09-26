@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "WordPress Landing on a VPS — Web Architecture Diagram",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "visitors", "type": "external", "label": "Visitors", "sublabel": "Browser", "pos": [40, 240], "size": [130, 60] },
+    { "id": "editor", "type": "external", "label": "Client Editor", "sublabel": "wp-admin", "pos": [40, 120], "size": [130, 60] },
+    { "id": "admin", "type": "external", "label": "Admin", "sublabel": "SSH key-only", "pos": [40, 380], "size": [130, 60] },
+    { "id": "letsencrypt", "type": "security", "label": "Let's Encrypt", "sublabel": "TLS certificates", "pos": [290, 40], "size": [140, 60] },
+    { "id": "traefik", "type": "cloud", "label": "Traefik", "sublabel": "Reverse Proxy :443", "pos": [290, 240], "size": [140, 60], "tag": "HTTP → HTTPS" },
+    { "id": "wordpress", "type": "backend", "label": "WordPress", "sublabel": "container", "brand": "wordpress", "pos": [520, 240], "size": [140, 60] },
+    { "id": "mysql", "type": "database", "label": "MySQL", "sublabel": "container + volume", "brand": "mysql", "pos": [750, 240], "size": [150, 60] },
+    { "id": "hardening", "type": "security", "label": "fail2ban + sshd", "sublabel": "no root login", "pos": [290, 380], "size": [140, 60] },
+    { "id": "backups", "type": "backend", "label": "Cron Backups", "sublabel": "dump + wp-content", "pos": [750, 380], "size": [150, 60] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "DigitalOcean Droplet · Docker Compose", "wraps": ["traefik", "wordpress", "mysql", "hardening", "backups"] },
+    { "kind": "security-group", "label": "UFW: 22 / 80 / 443", "wraps": ["traefik", "hardening"] }
+  ],
+  "connections": [
+    { "id": "visitors-to-traefik", "from": "visitors", "to": "traefik", "label": "HTTPS", "variant": "emphasis", "labelAt": [195, 270] },
+    { "id": "editor-to-traefik", "from": "editor", "to": "traefik", "label": "HTTPS" },
+    { "id": "traefik-acme", "from": "traefik", "to": "letsencrypt", "label": "ACME renew", "variant": "security", "labelAt": [360, 150] },
+    { "id": "traefik-to-wp", "from": "traefik", "to": "wordpress", "variant": "emphasis" },
+    { "id": "wp-to-mysql", "from": "wordpress", "to": "mysql", "label": "SQL", "variant": "emphasis" },
+    { "id": "admin-ssh", "from": "admin", "to": "hardening", "label": "SSH", "variant": "security" },
+    { "id": "mysql-backup", "from": "mysql", "to": "backups", "label": "mysqldump", "variant": "dashed", "labelDy": 24 }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Edge", "items": ["Traefik terminates TLS and redirects HTTP to HTTPS", "Let's Encrypt certificates renewed automatically"] },
+    { "dot": "emerald", "title": "Application", "items": ["WordPress and MySQL containers with persistent volumes", "MySQL reachable only on the internal Docker network", "Client manages content from wp-admin"] },
+    { "dot": "rose", "title": "Host security", "items": ["Key-only SSH, root login disabled", "fail2ban and WordPress login-attempt limit", "Scheduled backups: MySQL dump + wp-content"] }
+  ]
+}

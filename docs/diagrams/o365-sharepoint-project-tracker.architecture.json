@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Microsoft 365 Project Tracking — Web Architecture Diagram",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "team", "type": "external", "label": "Team", "sublabel": "5–15 users", "pos": [40, 300], "size": [130, 60] },
+    { "id": "groups", "type": "security", "label": "M365 Groups", "sublabel": "role-based access", "pos": [270, 300], "size": [150, 60], "tag": "mgmt / team / read" },
+    { "id": "sharepoint", "type": "database", "label": "SharePoint Lists", "sublabel": "Projects + Tasks", "pos": [510, 300], "size": [150, 60], "tag": "status · owner · due" },
+    { "id": "automate", "type": "backend", "label": "Power Automate", "sublabel": "3 flows", "pos": [750, 300], "size": [150, 60] },
+    { "id": "management", "type": "external", "label": "Management", "sublabel": "approvers", "pos": [990, 300], "size": [140, 60] },
+    { "id": "exchange", "type": "cloud", "label": "Exchange Online", "sublabel": "corporate email", "pos": [750, 470], "size": [150, 60] },
+    { "id": "registrar", "type": "external", "label": "DNS Registrar", "sublabel": "custom domain", "pos": [510, 470], "size": [150, 60] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Microsoft 365 Tenant", "wraps": ["groups", "sharepoint", "automate", "exchange"] }
+  ],
+  "connections": [
+    { "id": "team-member-of", "from": "team", "to": "groups", "label": "member of", "variant": "emphasis" },
+    { "id": "groups-grant", "from": "groups", "to": "sharepoint", "label": "permissions", "variant": "security" },
+    { "id": "list-trigger", "from": "sharepoint", "to": "automate", "label": "item changed", "variant": "emphasis" },
+    { "id": "approval-flow", "from": "automate", "to": "management", "label": "approval" },
+    { "id": "notify", "from": "automate", "to": "exchange", "label": "status / reminders", "variant": "dashed", "labelDy": 24 },
+    { "id": "dns-records", "from": "registrar", "to": "exchange", "label": "MX · verify" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Identity & domain", "items": ["Custom domain verified in the tenant", "Corporate email on Exchange Online", "Access through role-based M365 groups"] },
+    { "dot": "emerald", "title": "Data", "items": ["SharePoint Lists for projects and tasks", "Single source of truth replacing spreadsheets"] },
+    { "dot": "amber", "title": "Automation", "items": ["Status-change notification", "Scheduled due-date reminder", "Approval flow to management"] }
+  ]
+}
