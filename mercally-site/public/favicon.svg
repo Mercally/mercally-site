@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .c { fill: #7c3aed; }
+    .m { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .c { fill: #a78bfa; }
+      .m { stroke: #1a1030; }
+    }
+  </style>
+  <circle class="c" cx="32" cy="32" r="32"/>
+  <polyline class="m" points="19.5,44 19.5,20.5 32,36.5 44.5,20.5 44.5,44" fill="none" stroke-width="6" stroke-linejoin="miter" stroke-miterlimit="10"/>
+</svg>
