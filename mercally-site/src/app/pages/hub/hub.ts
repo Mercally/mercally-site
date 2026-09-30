@@ -32,10 +32,8 @@ const T = {
     optionB: 'Opción B',
     myRead: 'Mi lectura',
     workKicker: 'Dónde he trabajado',
-    workIntro: 'Sin nombres de clientes: el contexto técnico dice más que el logo.',
     stackKicker: 'Stack',
     testimonialsKicker: 'Lo que dicen',
-    testimonialsNote: 'Espacio reservado. Reemplaza estos tres bloques cuando tengas los testimonios.',
     referencesCta: 'Solicitar referencias',
     referencesSubject: 'Solicitud de referencias profesionales',
     referencesBody:
@@ -66,10 +64,8 @@ const T = {
     optionB: 'Option B',
     myRead: 'My take',
     workKicker: 'Where I\'ve worked',
-    workIntro: 'No client names: the technical context says more than the logo.',
     stackKicker: 'Stack',
     testimonialsKicker: 'What people say',
-    testimonialsNote: 'Placeholder space. Swap in these three blocks once you have real testimonials.',
     referencesCta: 'Request references',
     referencesSubject: 'Request for professional references',
     referencesBody:

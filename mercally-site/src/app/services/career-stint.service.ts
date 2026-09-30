@@ -3,6 +3,17 @@ import { CareerStint } from '../models/career-stint';
 
 const CAREER_STINTS: CareerStint[] = [
   {
+    slug: 'banking-solutions-architect',
+    periodEs: '2026 - Actualidad',
+    periodEn: '2026 - Present',
+    titleEs: 'Arquitecto de soluciones · Institución bancaria',
+    titleEn: 'Solutions Architect · Banking institution',
+    descriptionEs:
+      'Diseño de soluciones alineadas con las necesidades del negocio y la arquitectura empresarial. Definición de integraciones y criterios de seguridad, disponibilidad y escalabilidad; evaluación de alternativas, documentación de decisiones y acompañamiento técnico a los equipos durante la implementación.',
+    descriptionEn:
+      'Design of solutions aligned with business needs and enterprise architecture. Definition of integrations and security, availability, and scalability requirements; evaluation of alternatives, documentation of decisions, and technical guidance for teams throughout implementation.',
+  },
+  {
     slug: 'fintech-platform',
     periodEs: '2023 a 2026',
     periodEn: '2023 to 2026',

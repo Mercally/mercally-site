@@ -11,7 +11,7 @@ import { NavSection } from '../../components/section-nav/section-nav';
 const TRANS_T = {
   es: {
     title: 'Proyectos',
-    subtitle: 'Decisiones de arquitectura anonimizada de proyectos reales.',
+    subtitle: 'Decisiones de arquitectura en proyectos reales.',
     empty: 'Aún no hay proyectos publicados. Vuelve pronto.',
     casesKicker: 'Proyectos',
     patternsKicker: 'Patrones de arquitectura',
@@ -26,7 +26,7 @@ const TRANS_T = {
   },
   en: {
     title: 'Projects',
-    subtitle: 'Anonymized architecture decisions from real projects.',
+    subtitle: 'Architecture decisions from real projects.',
     empty: 'No projects published yet. Check back soon.',
     casesKicker: 'Projects',
     patternsKicker: 'Architecture patterns',

@@ -205,11 +205,10 @@
 
   <!-- CAREER TIMELINE -->
   <section id="career" class="scroll-mt-24 py-16 md:py-20 border-t border-gray-200 dark:border-gray-800">
-    <div class="flex items-center gap-3 mb-3">
+    <div class="flex items-center gap-3 mb-7">
       <span class="w-[3px] h-3.5 rounded-sm bg-violet-600 dark:bg-violet-400 block"></span>
       <h2 class="text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400">{{ t().workKicker }}</h2>
     </div>
-    <p class="text-base text-gray-600 dark:text-gray-400 max-w-lg mb-8">{{ t().workIntro }}</p>
     <div class="flex flex-col">
       @for (stint of career; track stint.slug) {
         <div class="grid grid-cols-1 sm:grid-cols-[110px_minmax(0,1fr)] gap-3 sm:gap-6 py-5 border-t border-gray-200 dark:border-gray-800 last:border-b">
@@ -241,7 +240,7 @@
 
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="scroll-mt-24 py-16 md:py-20 border-t border-gray-200 dark:border-gray-800">
-    <div class="flex flex-wrap items-start justify-between gap-4 mb-3">
+    <div class="flex flex-wrap items-start justify-between gap-4 mb-7">
       <div class="flex items-center gap-3">
         <span class="w-[3px] h-3.5 rounded-sm bg-violet-600 dark:bg-violet-400 block"></span>
         <h2 class="text-xs uppercase tracking-widest text-violet-700 dark:text-violet-400">{{ t().testimonialsKicker }}</h2>
@@ -252,7 +251,6 @@
         {{ t().referencesCta }}
       </a>
     </div>
-    <p class="text-xs text-gray-400 dark:text-gray-600 max-w-lg mb-7">{{ t().testimonialsNote }}</p>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       @for (item of testimonials; track item.slug) {
         <app-testimonial-card [testimonial]="item" [lang]="lang()" />
